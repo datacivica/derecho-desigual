@@ -1,0 +1,9 @@
+escuela_tipo,sector_trabajo,perc
+Universidad privada,Empresa del sector privado,0.331
+Universidad privada,Gobierno estatal o municipal,0.307
+Universidad privada,Gobierno federal,0.22
+Universidad privada,Otro,0.142
+Universidad pública,Empresa del sector privado,0.122
+Universidad pública,Gobierno estatal o municipal,0.675
+Universidad pública,Gobierno federal,0.064
+Universidad pública,Otro,0.139

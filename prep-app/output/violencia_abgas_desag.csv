@@ -1,0 +1,81 @@
+group,count,grouped_by,indicador,valor,indicador_desc,margin_error,max_year,min_year
+21 a 29 años,106,edad,lab_piropos,13.4,Le han dicho piropos groseros u ofensivos,5.442824297199817,2021,2016
+21 a 29 años,106,edad,lab_tocar,3.8,"La han manoseado, besado o tocado sin su consentimiento",3.0548669782360376,2021,2016
+21 a 29 años,106,edad,lab_ignorar_mujer,10.5,La han ignorado por ser mujer,4.898004015643939,2021,2016
+21 a 29 años,106,edad,anio_pagar_menos,13.7,Le han pagado menos que a un hombre en el mismo puesto,5.493873446892611,2021,2016
+21 a 29 años,106,edad,anio_menos_oport_asc,15.2,Ha tenido menos oportunidad que un hombre para ascender,5.736311009699526,2021,2016
+21 a 29 años,106,edad,anio_limiar_des_prof,9.2,Le han limitado su desarrollo profesional para favorecer a un hombre,4.617956180283532,2021,2016
+21 a 29 años,106,edad,embzo_prueba_trab,13.2,Le han pedido una prueba de embarazo como requisito para trabajar,5.408287843322174,2021,2016
+21 a 29 años,106,edad,embzo_desp,4.3,La despidieron o no le renovaron el contrato por embarazarse,3.2411801189812395,2021,2016
+30 a 39 años,155,edad,lab_piropos,20.5,Le han dicho piropos groseros u ofensivos,5.334092566506933,2021,2016
+30 a 39 años,155,edad,lab_tocar,7.3,"La han manoseado, besado o tocado sin su consentimiento",3.4371726732132433,2021,2016
+30 a 39 años,155,edad,lab_ignorar_mujer,8.6,La han ignorado por ser mujer,3.704438393724914,2021,2016
+30 a 39 años,155,edad,anio_pagar_menos,10.7,Le han pagado menos que a un hombre en el mismo puesto,4.0843003489364715,2021,2016
+30 a 39 años,155,edad,anio_menos_oport_asc,18.5,Ha tenido menos oportunidad que un hombre para ascender,5.130559419758962,2021,2016
+30 a 39 años,155,edad,anio_limiar_des_prof,12.3,Le han limitado su desarrollo profesional para favorecer a un hombre,4.339627030019678,2021,2016
+30 a 39 años,155,edad,embzo_prueba_trab,10.2,Le han pedido una prueba de embarazo como requisito para trabajar,3.9988794067435216,2021,2016
+30 a 39 años,155,edad,embzo_desp,13.8,La despidieron o no le renovaron el contrato por embarazarse,4.5571490090101925,2021,2016
+40 a 49 años,84,edad,lab_piropos,13.9,Le han dicho piropos groseros u ofensivos,6.20919408518529,2021,2016
+40 a 49 años,84,edad,lab_tocar,11.7,"La han manoseado, besado o tocado sin su consentimiento",5.768986755705026,2021,2016
+40 a 49 años,84,edad,lab_ignorar_mujer,17.7,La han ignorado por ser mujer,6.850350771128439,2021,2016
+40 a 49 años,84,edad,anio_pagar_menos,17.8,Le han pagado menos que a un hombre en el mismo puesto,6.865499963586046,2021,2016
+40 a 49 años,84,edad,anio_menos_oport_asc,32.6,Ha tenido menos oportunidad que un hombre para ascender,8.413273505796262,2021,2016
+40 a 49 años,84,edad,anio_limiar_des_prof,21.6,Le han limitado su desarrollo profesional para favorecer a un hombre,7.386031681491761,2021,2016
+40 a 49 años,84,edad,embzo_prueba_trab,5,Le han pedido una prueba de embarazo como requisito para trabajar,3.911767769606643,2021,2016
+40 a 49 años,84,edad,embzo_desp,9.6,La despidieron o no le renovaron el contrato por embarazarse,5.287447777519887,2021,2016
+50 a 59 años,44,edad,lab_piropos,8.2,Le han dicho piropos groseros u ofensivos,6.804055239674752,2021,2016
+50 a 59 años,44,edad,lab_tocar,5.5,"La han manoseado, besado o tocado sin su consentimiento",5.6537527636517675,2021,2016
+50 a 59 años,44,edad,lab_ignorar_mujer,6.4,La han ignorado por ser mujer,6.069703482348735,2021,2016
+50 a 59 años,44,edad,anio_pagar_menos,23.2,Le han pagado menos que a un hombre en el mismo puesto,10.46801090769571,2021,2016
+50 a 59 años,44,edad,anio_menos_oport_asc,27,Ha tenido menos oportunidad que un hombre para ascender,11.00988736937684,2021,2016
+50 a 59 años,44,edad,anio_limiar_des_prof,19,Le han limitado su desarrollo profesional para favorecer a un hombre,9.728791005660373,2021,2016
+50 a 59 años,44,edad,embzo_prueba_trab,4.2,Le han pedido una prueba de embarazo como requisito para trabajar,4.974471691912254,2021,2016
+50 a 59 años,44,edad,embzo_desp,11.3,La despidieron o no le renovaron el contrato por embarazarse,7.851282347127645,2021,2016
+Casada o unión libre,214,e_con,lab_piropos,13.6,Le han dicho piropos groseros u ofensivos,3.854653466369499,2021,2016
+Casada o unión libre,214,e_con,lab_tocar,7.4,"La han manoseado, besado o tocado sin su consentimiento",2.943610672239049,2021,2016
+Casada o unión libre,214,e_con,lab_ignorar_mujer,10.5,La han ignorado por ser mujer,3.447189694986961,2021,2016
+Casada o unión libre,214,e_con,anio_pagar_menos,12.2,Le han pagado menos que a un hombre en el mismo puesto,3.680325144997001,2021,2016
+Casada o unión libre,214,e_con,anio_menos_oport_asc,22.1,Ha tenido menos oportunidad que un hombre para ascender,4.66577596182399,2021,2016
+Casada o unión libre,214,e_con,anio_limiar_des_prof,16.7,Le han limitado su desarrollo profesional para favorecer a un hombre,4.194109374757638,2021,2016
+Casada o unión libre,214,e_con,embzo_prueba_trab,12.4,Le han pedido una prueba de embarazo como requisito para trabajar,3.7061407718219157,2021,2016
+Casada o unión libre,214,e_con,embzo_desp,10.6,La despidieron o no le renovaron el contrato por embarazarse,3.461630491383866,2021,2016
+Soltera o divorciada,187,e_con,lab_piropos,16.7,Le han dicho piropos groseros u ofensivos,4.486687639815449,2021,2016
+Soltera o divorciada,187,e_con,lab_tocar,6.6,"La han manoseado, besado o tocado sin su consentimiento",2.9866924554646417,2021,2016
+Soltera o divorciada,187,e_con,lab_ignorar_mujer,10.9,La han ignorado por ser mujer,3.748842544902438,2021,2016
+Soltera o divorciada,187,e_con,anio_pagar_menos,15.8,Le han pagado menos que a un hombre en el mismo puesto,4.387626877974112,2021,2016
+Soltera o divorciada,187,e_con,anio_menos_oport_asc,20.3,Ha tenido menos oportunidad que un hombre para ascender,4.838628494717594,2021,2016
+Soltera o divorciada,187,e_con,anio_limiar_des_prof,11.3,Le han limitado su desarrollo profesional para favorecer a un hombre,3.8084313427946617,2021,2016
+Soltera o divorciada,187,e_con,embzo_prueba_trab,6.6,Le han pedido una prueba de embarazo como requisito para trabajar,2.9866924554646417,2021,2016
+Soltera o divorciada,187,e_con,embzo_desp,11.3,La despidieron o no le renovaron el contrato por embarazarse,3.8084313427946617,2021,2016
+Empresa del sector privado,104,sector,lab_piropos,20,Le han dicho piropos groseros u ofensivos,6.452220846046255,2021,2016
+Empresa del sector privado,104,sector,lab_tocar,11,"La han manoseado, besado o tocado sin su consentimiento",5.047084530658803,2021,2016
+Empresa del sector privado,104,sector,lab_ignorar_mujer,11,La han ignorado por ser mujer,5.047084530658803,2021,2016
+Empresa del sector privado,104,sector,anio_pagar_menos,19,Le han pagado menos que a un hombre en el mismo puesto,6.328030191597479,2021,2016
+Empresa del sector privado,104,sector,anio_menos_oport_asc,25.4,Ha tenido menos oportunidad que un hombre para ascender,7.021590611902252,2021,2016
+Empresa del sector privado,104,sector,anio_limiar_des_prof,18.4,Le han limitado su desarrollo profesional para favorecer a un hombre,6.250333972615445,2021,2016
+Empresa del sector privado,104,sector,embzo_prueba_trab,8.4,Le han pedido una prueba de embarazo como requisito para trabajar,4.474418608558589,2021,2016
+Empresa del sector privado,104,sector,embzo_desp,15.8,La despidieron o no le renovaron el contrato por embarazarse,5.883473773565305,2021,2016
+Gobierno estatal o municipal,171,sector,lab_piropos,14.4,Le han dicho piropos groseros u ofensivos,4.4165787187536205,2021,2016
+Gobierno estatal o municipal,171,sector,lab_tocar,6.3,"La han manoseado, besado o tocado sin su consentimiento",3.0563839982464316,2021,2016
+Gobierno estatal o municipal,171,sector,lab_ignorar_mujer,13.3,La han ignorado por ser mujer,4.271724310314669,2021,2016
+Gobierno estatal o municipal,171,sector,anio_pagar_menos,14.9,Le han pagado menos que a un hombre en el mismo puesto,4.479461015868991,2021,2016
+Gobierno estatal o municipal,171,sector,anio_menos_oport_asc,21.1,Ha tenido menos oportunidad que un hombre para ascender,5.1327200361307685,2021,2016
+Gobierno estatal o municipal,171,sector,anio_limiar_des_prof,10.1,Le han limitado su desarrollo profesional para favorecer a un hombre,3.790603679606713,2021,2016
+Gobierno estatal o municipal,171,sector,embzo_prueba_trab,8,Le han pedido una prueba de embarazo como requisito para trabajar,3.4127679082119897,2021,2016
+Gobierno estatal o municipal,171,sector,embzo_desp,3.8,La despidieron o no le renovaron el contrato por embarazarse,2.40517777120759,2021,2016
+Gobierno federal,84,sector,lab_piropos,9.8,Le han dicho piropos groseros u ofensivos,5.336328614631349,2021,2016
+Gobierno federal,84,sector,lab_tocar,3.3,"La han manoseado, besado o tocado sin su consentimiento",3.2062432358603115,2021,2016
+Gobierno federal,84,sector,lab_ignorar_mujer,4.6,La han ignorado por ser mujer,3.759926561782823,2021,2016
+Gobierno federal,84,sector,anio_pagar_menos,4.6,Le han pagado menos que a un hombre en el mismo puesto,3.759926561782823,2021,2016
+Gobierno federal,84,sector,anio_menos_oport_asc,13.1,Ha tenido menos oportunidad que un hombre para ascender,6.055803788171587,2021,2016
+Gobierno federal,84,sector,anio_limiar_des_prof,7.7,Le han limitado su desarrollo profesional para favorecer a un hombre,4.784895664571312,2021,2016
+Gobierno federal,84,sector,embzo_prueba_trab,8.6,Le han pedido una prueba de embarazo como requisito para trabajar,5.03209211793001,2021,2016
+Gobierno federal,84,sector,embzo_desp,5.1,La despidieron o no le renovaron el contrato por embarazarse,3.948611931742597,2021,2016
+Otro,42,sector,lab_piropos,13.3,Le han dicho piropos groseros u ofensivos,8.619391879651372,2021,2016
+Otro,42,sector,lab_tocar,3.3,"La han manoseado, besado o tocado sin su consentimiento",4.534312668420651,2021,2016
+Otro,42,sector,lab_ignorar_mujer,13.3,La han ignorado por ser mujer,8.619391879651372,2021,2016
+Otro,42,sector,anio_pagar_menos,15.1,Le han pagado menos que a un hombre en el mismo puesto,9.088319282188538,2021,2016
+Otro,42,sector,anio_menos_oport_asc,24.6,Ha tenido menos oportunidad que un hombre para ascender,10.93187063132381,2021,2016
+Otro,42,sector,anio_limiar_des_prof,24.2,Le han limitado su desarrollo profesional para favorecer a un hombre,10.871351625564627,2021,2016
+Otro,42,sector,embzo_prueba_trab,18.4,Le han pedido una prueba de embarazo como requisito para trabajar,9.835472942365303,2021,2016
+Otro,42,sector,embzo_desp,36.4,La despidieron o no le renovaron el contrato por embarazarse,12.212947965172045,2021,2016

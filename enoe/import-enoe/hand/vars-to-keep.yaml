@@ -1,0 +1,64 @@
+all:
+  - tipo
+  - mes_cal
+  - cd_a
+  - ent
+  - con
+  - v_sel
+  - n_hog
+  - h_mud
+  - n_ren
+  - fac
+  - fac_tri
+hogar:
+  - p4_1
+  - t_loc_tri
+  - t_loc
+sdem:
+  - mun
+  - t_loc_tri
+  - t_loc
+  - sex
+  - eda
+  - l_nac_c
+  - cs_p13_1
+  - cs_p14_c
+  - cs_p16
+  - cs_p17
+  - n_hij
+  - e_con
+  - clase1
+  - clase2
+  - ing7c
+  - dur9c
+  - rama_est1
+  - hrsocup
+  - ingocup
+  - t_tra
+  - emp_ppal
+coe1t:
+  - p1
+  - p1a1
+  - p1b
+  - p3
+  - p3b
+  - p3d
+  - p3j
+  - p3k1
+  - p3m2
+  - p3m3
+  - p3q
+  - p4c
+  - p4d1 
+  - p4d2
+  - p5e_thrs
+coe2t:
+  - p6c
+  - p7
+  - p11_h2
+  - p11_h3
+  - p11_h4
+  - p11_h5
+  - p11_h6
+  - p11_h7
+  - p11_h8

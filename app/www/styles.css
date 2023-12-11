@@ -1,0 +1,310 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+
+body{
+    background-color: #faf4e8;
+}
+
+#logo-dd-landing{
+    padding-top:15vh;
+    padding-bottom: 15vh;
+}
+
+.logo-dd{
+    max-height: 40vh;
+}
+
+#landing-intro{
+    height: 100vh;
+    /* width: 100vw; */
+    justify-content: center;
+    align-items: center;
+    background-image: url("assets/textura.png");
+}
+
+#landing-menu{
+    padding-bottom: 10%;
+}
+.btn-container{
+    position: relative;
+}
+
+.btn-perfiles{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: gray;
+    border-radius: 25px;
+}
+
+.btn-container:hover .btn-perfiles {
+    opacity: 0.5;
+  }
+  
+.sub-slide{
+    padding: 5% 0% 2% 0%;
+    border-bottom: 1px solid #000;
+}
+
+.header{
+    background: #242223;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    max-width: 100%;
+}
+
+#explorar-box{
+    box-sizing: border-box;
+    background: #69bdb3;
+}
+
+#about-box{
+    border-top: 1px solid #000;
+    margin-top: 25%;
+}
+
+.top-menu{
+    justify-content: space-between;
+    padding-bottom: 8%;
+}
+
+#logo-abogadas{
+    border-right: 2px solid #C9C9C9;
+    line-height: 50%;
+    padding: 0% 3%;
+}
+
+#logo-abogadas-mobile{
+    line-height: 50%;
+}
+
+#logo-dc{
+    padding: 0% 3%;
+}
+
+.invisible-slide{
+    visibility: hidden;
+    max-height: 0;
+    overflow: hidden;
+}
+
+.square-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 70%;
+  }
+
+.square-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.default-body{
+    color: #000;
+    text-align: center;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.2vw;
+    padding-top: 3%;
+    padding-bottom: 3%;
+}
+
+.default-intro{
+    color: #000;
+    text-align: left;
+    align-items: center;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.2vw;
+    display: flex;
+    padding: 0%, 0%, 0%, 5%;
+}
+
+.default-dropdown{
+    color: #000;
+    text-align: center;
+    font-family: Roboto Slab;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1vw;
+    display: flex;
+    justify-content: center;
+}
+.default-dropdown .selectize-dropdown-content {
+    font-size: 1vw; 
+}
+.default-dropdown select,
+.default-dropdown .selectize-input,
+.default-dropdown .selectize-control {
+    background-color: #faf4e8; 
+}
+.default-dropdown .selectize-dropdown-content {
+    background-color: #faf4e8;
+}
+.default-dropdown .selectize-control .selectize-input .item {
+    font-size: 1vw;
+}
+.default-dropdown label {
+    font-weight: bold;
+}
+
+.default-checkbox{
+    color: #000;
+    text-align: left;
+    font-family: Roboto Slab;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1vw;
+    display: flex;
+    align-items: center;
+    padding: 0%;
+    justify-content: center;
+}
+.default-checkbox input[type="checkbox"]:checked {
+    background-color: #4C37CB; 
+}
+.default-checkbox label {
+    font-weight: bold;
+}
+
+.default-subtitle{
+    font-family: Open Sans;
+    font-size: 1.5vw;
+    font-style: normal;
+    font-weight: 700;
+    text-align: center;
+}
+
+.default-hallazgos{
+    font-family: Barlow Condensed;
+    font-size: 1.5vw;
+    font-style: italic;
+    font-weight: 400;
+    text-align: center; 
+    padding-top: 4%;
+}
+
+.default-menu-text{
+    font-family: Barlow Condensed;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #393939;
+    text-align: center;
+    word-wrap: break-word;
+    max-width: 25ch;
+    padding: 1%;
+}
+
+.default-menu-text a {
+    color: inherit !important;
+    text-decoration: none !important;
+}
+
+.default-menu-text:hover {
+    color: #F1A0DD;
+    border-bottom: 1px solid #F1A0DD;
+}
+
+.selected-menu-text{
+    font-family: Barlow Condensed;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-align: center;
+    word-wrap: break-word;
+    max-width: 25ch;
+    padding: 1%;
+    color: #F1A0DD;
+    border-bottom: 1px solid #F1A0DD;
+}
+
+.selected-menu-text a {
+    color: inherit !important;
+}
+
+.selected-menu-text a:hover {
+    text-decoration: none !important;
+}
+
+#explorar-text{
+    color: #000;
+    text-align: center;
+    font-family: Barlow Condensed;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-transform: uppercase;
+    font-size: 2.5vw;
+}
+
+.about-text{
+    color: #000;
+    text-align: center;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 0.8vw;
+}
+.about-puntos{
+    color: #69BDB3;
+    font-size: 1.5vw;
+    font-weight: 600;
+    line-height: 1;
+}
+
+/* Responsive values */
+/* Mobile */
+@media screen and (max-width:767px) {
+    .default-body{
+        font-size: 2vw
+    }
+    .default-intro{
+        font-size: 2vw
+    }
+    .default-dropdown{
+        font-size: 2vw;
+    }
+    .default-dropdown .selectize-dropdown-content .option{
+        font-size: 2vw; 
+    }
+    .default-dropdown .selectize-control .selectize-input .item {
+        font-size: 2vw;
+    }
+    .default-checkbox{
+        font-size: 2vw;
+        text-align: center;
+    }
+    .default-hallazgos{
+        font-size: 2.5vw
+    }
+    .selected-menu-text{
+        font-size: 2vw
+    }
+    .default-menu-text{
+        font-size: 2vw
+    }
+    .default-subtitle{
+        font-size: 3vw
+    }
+    #logo-abogadas{
+        border-right: 0px;
+        padding: 0% 5%
+    }
+    #logo-dc{
+        padding: 5% 5% 0% 5%;
+    }
+ }

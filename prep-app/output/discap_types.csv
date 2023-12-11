@@ -1,0 +1,6 @@
+disc_type,perc,x_val,y_val,disc_desc
+disc_fisica,0.006,1,1,física
+disc_auditiva,0.008,3,1,auditiva
+disc_visual,0.051,5,1,visual
+disc_psicosocial,0.013,1.5,0,psicosocial
+disc_aprender,0.001,4.5,0,de aprendizaje

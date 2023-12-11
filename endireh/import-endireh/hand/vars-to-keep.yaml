@@ -1,0 +1,37 @@
+all:
+  - id_viv
+  - id_per
+  - upm
+  - viv_sel
+  - hogar
+  - n_ren
+  - fac_viv
+  - fac_muj
+sdem:
+  - cve_ent
+  - cve_mun
+  - sexo
+  - edad
+  - niv
+  - p2_9
+  - p2_10
+  - p2_16
+tb_sec_iv:
+  - p4_1
+  - p4_2
+  - p4_2_1
+tb_sec_vii_exact:
+  - p7_3
+  - p7_4
+tb_sec_vii_regex:
+  - p7_6_
+tb_sec_viii_exact:
+  - p8_6_cve
+  - p8_7
+tb_sec_viii_regex:
+  - p8_3_1_
+  - p8_3_2_
+  - p8_8_
+  - p8_9_
+  - p8_10_
+  - p8_12_

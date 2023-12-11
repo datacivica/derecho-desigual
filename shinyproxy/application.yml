@@ -1,0 +1,29 @@
+proxy:
+  title: Open Analytics Shiny Proxy
+  logo-url: https://www.openanalytics.eu/shinyproxy/logo.png
+  port: 8080
+  authentication: simple
+  admin-groups: admins
+  users:
+    - name: dc
+      password: password
+      groups: admins
+    - name: tech
+      password: password
+  docker:
+    internal-networking: true
+    container-network: shinyproxy-nginx_shinyproxy-net
+  specs:
+    - id: shiny_dashboard
+      display-name: Test Application
+      description: Application which demonstrates the basics of a Shiny app
+      container-cmd: ["R", "-e", "shiny::runApp('/root/run-app')"]
+      container-image: app
+      container-network: shinyproxy-nxinx_shinyproxy-net
+
+logging:
+  file: shinyproxy.log
+
+server:
+  servlet:
+    context-path: /

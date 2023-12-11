@@ -1,0 +1,19 @@
+categ_name,ingresos_med,brecha_centavos_menos,categ_type,maternidad
+21 a 25 años,9600,3.1,edad,NA
+26 a 29 años,10900,-18.7,edad,NA
+30 a 34 años,13100,14.3,edad,NA
+35 a 39 años,12600,6.2,edad,NA
+40 a 44 años,13200,9.8,edad,NA
+45 a 49 años,13500,-13.7,edad,NA
+50 a 54 años,12900,11.9,edad,NA
+55 a 59 años,14400,8.8,edad,NA
+Empresa del sector privado,15900,41,sector,NA
+Empresa personal,10200,6.2,sector,NA
+Gobierno (otro),15900,-20.7,sector,NA
+Gobierno estatal o municipal,13800,-2.1,sector,NA
+Gobierno federal,15100,18.8,sector,NA
+Poder judicial o legislativo,15500,0,sector,NA
+Casada o en unión libre,14337.783068293555,13.8,e_con,Mujer con hijes
+Casada o en unión libre,14382.009728737132,30.9,e_con,Mujer sin hijes
+Soltera o divorciada,11186.349596218972,-9.2,e_con,Mujer con hijes
+Soltera o divorciada,11268.13612265273,-9.2,e_con,Mujer sin hijes

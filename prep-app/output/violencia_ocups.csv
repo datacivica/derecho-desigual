@@ -1,0 +1,57 @@
+ocups_de_interes,count,indicador,valor,indicador_desc,margin_error
+Abogadas,401,lab_piropos,15.3,Le han dicho piropos groseros u ofensivos,2.9572029894096827
+Abogadas,401,lab_tocar,7,"La han manoseado, besado o tocado sin su consentimiento",2.0959658883167758
+Abogadas,401,lab_ignorar_mujer,10.7,La han ignorado por ser mujer,2.539284339530046
+Abogadas,401,anio_pagar_menos,14.1,Le han pagado menos que a un hombre en el mismo puesto,2.858905855855242
+Abogadas,401,anio_menos_oport_asc,21.2,Ha tenido menos oportunidad que un hombre para ascender,3.357567521413066
+Abogadas,401,anio_limiar_des_prof,13.9,Le han limitado su desarrollo profesional para favorecer a un hombre,2.841860082332716
+Abogadas,401,embzo_prueba_trab,9.3,Le han pedido una prueba de embarazo como requisito para trabajar,2.385826366429068
+Abogadas,401,embzo_desp,10.8,La despidieron o no le renovaron el contrato por embarazarse,2.549693758932463
+Docentes de educación básica,1217,lab_piropos,6.2,Le han dicho piropos groseros u ofensivos,1.137150317909543
+Docentes de educación básica,1217,lab_tocar,2.4,"La han manoseado, besado o tocado sin su consentimiento",0.7216907565356662
+Docentes de educación básica,1217,lab_ignorar_mujer,5.9,La han ignorado por ser mujer,1.1110700238899673
+Docentes de educación básica,1217,anio_pagar_menos,4.2,Le han pagado menos que a un hombre en el mismo puesto,0.9458625115284317
+Docentes de educación básica,1217,anio_menos_oport_asc,6.5,Ha tenido menos oportunidad que un hombre para ascender,1.1624735950915734
+Docentes de educación básica,1217,anio_limiar_des_prof,3.8,Le han limitado su desarrollo profesional para favorecer a un hombre,0.9015710286153028
+Docentes de educación básica,1217,embzo_prueba_trab,16.6,Le han pedido una prueba de embarazo como requisito para trabajar,1.7545174118251716
+Docentes de educación básica,1217,embzo_desp,2.8,La despidieron o no le renovaron el contrato por embarazarse,0.7779161025541139
+Enfermeras,1517,lab_piropos,11,Le han dicho piropos groseros u ofensivos,1.321491754851716
+Enfermeras,1517,lab_tocar,5.4,"La han manoseado, besado o tocado sin su consentimiento",0.9545870974915956
+Enfermeras,1517,lab_ignorar_mujer,3.5,La han ignorado por ser mujer,0.7761949104814782
+Enfermeras,1517,anio_pagar_menos,5.5,Le han pagado menos que a un hombre en el mismo puesto,0.9628759977519447
+Enfermeras,1517,anio_menos_oport_asc,5.1,Ha tenido menos oportunidad que un hombre para ascender,0.9291617133834489
+Enfermeras,1517,anio_limiar_des_prof,2.7,Le han limitado su desarrollo profesional para favorecer a un hombre,0.6845598346900945
+Enfermeras,1517,embzo_prueba_trab,18.7,Le han pedido una prueba de embarazo como requisito para trabajar,1.646793666150309
+Enfermeras,1517,embzo_desp,4.9,La despidieron o no le renovaron el contrato por embarazarse,0.9117198499931088
+Ingenieras,178,lab_piropos,11.6,Le han dicho piropos groseros u ofensivos,3.948308040417119
+Ingenieras,178,lab_tocar,9.1,"La han manoseado, besado o tocado sin su consentimiento",3.5461617323950936
+Ingenieras,178,lab_ignorar_mujer,8.8,La han ignorado por ser mujer,3.492968397326134
+Ingenieras,178,anio_pagar_menos,27.3,Le han pagado menos que a un hombre en el mismo puesto,5.492934623120542
+Ingenieras,178,anio_menos_oport_asc,27.3,Ha tenido menos oportunidad que un hombre para ascender,5.492934623120542
+Ingenieras,178,anio_limiar_des_prof,22,Le han limitado su desarrollo profesional para favorecer a un hombre,5.107572534092025
+Ingenieras,178,embzo_prueba_trab,8,Le han pedido una prueba de embarazo como requisito para trabajar,3.3449898809070837
+Ingenieras,178,embzo_desp,0,La despidieron o no le renovaron el contrato por embarazarse,0
+Médicas,863,lab_piropos,11.4,Le han dicho piropos groseros u ofensivos,1.779630298360098
+Médicas,863,lab_tocar,5.1,"La han manoseado, besado o tocado sin su consentimiento",1.2319092003106256
+Médicas,863,lab_ignorar_mujer,5.5,La han ignorado por ser mujer,1.276608563723051
+Médicas,863,anio_pagar_menos,5,Le han pagado menos que a un hombre en el mismo puesto,1.2204143603269493
+Médicas,863,anio_menos_oport_asc,9.1,Ha tenido menos oportunidad que un hombre para ascender,1.6105089483487731
+Médicas,863,anio_limiar_des_prof,5.8,Le han limitado su desarrollo profesional para favorecer a un hombre,1.3088803645889446
+Médicas,863,embzo_prueba_trab,14.9,Le han pedido una prueba de embarazo como requisito para trabajar,1.9939690760940767
+Médicas,863,embzo_desp,4.4,La despidieron o no le renovaron el contrato por embarazarse,1.1484597756626829
+Recepcionistas,1290,lab_piropos,15,Le han dicho piropos groseros u ofensivos,1.6354080814962533
+Recepcionistas,1290,lab_tocar,6.7,"La han manoseado, besado o tocado sin su consentimiento",1.1451154397478174
+Recepcionistas,1290,lab_ignorar_mujer,5.5,La han ignorado por ser mujer,1.0441629909856918
+Recepcionistas,1290,anio_pagar_menos,9.6,Le han pagado menos que a un hombre en el mismo puesto,1.34924519122601
+Recepcionistas,1290,anio_menos_oport_asc,12.3,Ha tenido menos oportunidad que un hombre para ascender,1.5042617050651728
+Recepcionistas,1290,anio_limiar_des_prof,5,Le han limitado su desarrollo profesional para favorecer a un hombre,0.998200658316536
+Recepcionistas,1290,embzo_prueba_trab,16.1,Le han pedido una prueba de embarazo como requisito para trabajar,1.6833133415997605
+Recepcionistas,1290,embzo_desp,9,La despidieron o no le renovaron el contrato por embarazarse,1.3107292706467772
+Vendedoras ambulantes,308,lab_piropos,9.2,Le han dicho piropos groseros u ofensivos,2.709114632293933
+Vendedoras ambulantes,308,lab_tocar,6.6,"La han manoseado, besado o tocado sin su consentimiento",2.3272120122584448
+Vendedoras ambulantes,308,lab_ignorar_mujer,2.8,La han ignorado por ser mujer,1.5463318178544638
+Vendedoras ambulantes,308,anio_pagar_menos,8.8,Le han pagado menos que a un hombre en el mismo puesto,2.6553960156632006
+Vendedoras ambulantes,308,anio_menos_oport_asc,14.8,Ha tenido menos oportunidad que un hombre para ascender,3.328443575661699
+Vendedoras ambulantes,308,anio_limiar_des_prof,1.4,Le han limitado su desarrollo profesional para favorecer a un hombre,1.101267998511468
+Vendedoras ambulantes,308,embzo_prueba_trab,8.4,Le han pedido una prueba de embarazo como requisito para trabajar,2.6000273949605717
+Vendedoras ambulantes,308,embzo_desp,3,La despidieron o no le renovaron el contrato por embarazarse,1.598957934804017

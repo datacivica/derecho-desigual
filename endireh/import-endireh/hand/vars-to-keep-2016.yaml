@@ -1,0 +1,47 @@
+all:
+  - id_viv
+  - id_per
+  - upm
+  - viv_sel
+  - hogar
+  - n_ren
+  - ren_m_ele # not sure if in 2021?
+  - fac_viv
+  - fac_muj
+sdem:
+  - cve_ent
+  - cve_mun
+  - sexo
+  - edad
+  - niv
+  - p2_9
+  - p2_10
+  - p2_11
+  - p2_16
+# Pareja/ingresos y recursos
+tb_sec_iv:
+  - p4_1
+  - p4_2
+  - p4_2_1
+# Ámbito escolar
+tb_sec_vi_exact:
+  - p6_3
+  - p6_4
+tb_sec_vi_regex:
+  - p6_6_
+# Ámbito laboral
+tb_sec_vii_exact:
+  - p7_6_cve
+  - p7_7
+tb_sec_vii_regex:
+  - p7_3_1_
+  - p7_3_2_
+  - p7_8_
+  - p7_9_
+  - p7_10_
+  - p7_12_
+tb_sec_vii_2_regex:
+  - p7_10_
+  - p7_12_
+tb_sec_ix:
+  - p9_4_1

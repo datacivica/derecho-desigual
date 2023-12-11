@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="esp">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>Derecho desigual</title>
+        <link rel="shortcut icon" href="favicon.ico" />
+        
+        <!-- Load fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;900&family=Fredoka:wght@300;400;500;600;700&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+        
+        <!-- Load Bootstrap -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="styles.css">
+    </head>
+
+    <!-- Landing -->
+    <body>
+
+        <!-- Script to hide/show pages -->
+        <script>
+            document.addEventListener('DOMContentLoaded', function(){
+                // Default
+                document.querySelector('#perfiles').className='invisible-slide'
+                document.querySelector('#genero').className='invisible-slide'
+                document.querySelector('#abogadas').className='invisible-slide'
+                document.querySelector('#cuidados').className='invisible-slide'
+                document.querySelector('#violencia').className='invisible-slide'
+
+                // Landing
+                document.querySelectorAll('[id^="btn-landing"]').forEach(element => {
+                    element.addEventListener("click", () => {
+                        document.querySelector('#landing-intro').className='visible';
+                        document.querySelector('#landing-menu').className='visible';
+                        // document.querySelector('#landing-intro-mobile').className='invisible-slide';
+                        document.querySelector('#perfiles').className='invisible-slide'
+                        document.querySelector('#genero').className='invisible-slide'
+                        document.querySelector('#abogadas').className='invisible-slide'
+                        document.querySelector('#cuidados').className='invisible-slide'
+                        document.querySelector('#violencia').className='invisible-slide' 
+                    });
+                });
+
+                // Perfiles
+                document.querySelectorAll('[id^="btn-perfiles"]').forEach(element => {
+                    element.addEventListener("click", () => {
+                        document.querySelector('#landing-intro').className = 'invisible-slide';
+                        // document.querySelector('#landing-intro-mobile').className = 'invisible-slide';
+                        document.querySelector('#landing-menu').className = 'd-none';
+                        document.querySelector('#perfiles').className = 'visible';
+                        document.querySelector('#genero').className = 'invisible-slide';
+                        document.querySelector('#abogadas').className = 'invisible-slide';
+                        document.querySelector('#cuidados').className = 'invisible-slide';
+                        document.querySelector('#violencia').className = 'invisible-slide';
+                    });
+                });
+
+                // Género
+                document.querySelectorAll('[id^="btn-genero"]').forEach(element => {
+                    element.addEventListener("click", () => {
+                        document.querySelector('#landing-intro').className = 'invisible-slide';
+                        // document.querySelector('#landing-intro-mobile').className = 'invisible-slide';
+                        document.querySelector('#landing-menu').className = 'd-none';
+                        document.querySelector('#perfiles').className = 'invisible-slide';
+                        document.querySelector('#genero').className = 'visible';
+                        document.querySelector('#abogadas').className = 'invisible-slide';
+                        document.querySelector('#cuidados').className = 'invisible-slide';
+                        document.querySelector('#violencia').className = 'invisible-slide';
+                    });
+                });
+            
+                // Abogadas
+                document.querySelectorAll('[id^="btn-abogadas"]').forEach(element => {
+                    element.addEventListener("click", () => {
+                        document.querySelector('#landing-intro').className = 'invisible-slide';
+                        // document.querySelector('#landing-intro-mobile').className = 'invisible-slide';
+                        document.querySelector('#landing-menu').className = 'd-none';
+                        document.querySelector('#perfiles').className = 'invisible-slide';
+                        document.querySelector('#genero').className = 'invisible-slide';
+                        document.querySelector('#abogadas').className = 'visible';
+                        document.querySelector('#cuidados').className = 'invisible-slide';
+                        document.querySelector('#violencia').className = 'invisible-slide';
+                    });
+                });
+
+                // Cuidados
+                document.querySelectorAll('[id^="btn-cuidados"]').forEach(element => {
+                    element.addEventListener("click", () => {
+                        document.querySelector('#landing-intro').className = 'invisible-slide';
+                        // document.querySelector('#landing-intro-mobile').className = 'invisible-slide';
+                        document.querySelector('#landing-menu').className = 'd-none';
+                        document.querySelector('#perfiles').className = 'invisible-slide';
+                        document.querySelector('#genero').className = 'invisible-slide';
+                        document.querySelector('#abogadas').className = 'invisible-slide';
+                        document.querySelector('#cuidados').className = 'visible';
+                        document.querySelector('#violencia').className = 'invisible-slide';
+                    });
+                });
+
+                // Violencia
+                document.querySelectorAll('[id^="btn-violencia"]').forEach(element => {
+                    element.addEventListener("click", () => {
+                        document.querySelector('#landing-intro').className = 'invisible-slide';
+                        // document.querySelector('#landing-intro-mobile').className = 'invisible-slide';
+                        document.querySelector('#landing-menu').className = 'd-none';
+                        document.querySelector('#perfiles').className = 'invisible-slide';
+                        document.querySelector('#genero').className = 'invisible-slide';
+                        document.querySelector('#abogadas').className = 'invisible-slide';
+                        document.querySelector('#cuidados').className = 'invisible-slide';
+                        document.querySelector('#violencia').className = 'visible';
+                    });
+                });
+                
+            }, false);
+
+
+        </script>
+        <!-- Intro image -->
+        <section  id="landing-intro" class="d-flex">
+            <div class="row">
+                <div class="col-10 mx-auto">
+                    <div class="row" id="logo-dd-landing">
+                        <div class="col">
+                            <img class="img-fluid mx-auto d-block" src="assets/logo-dd.png" alt="Logo Derecho Desigual">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-10 col-md-6 mx-auto" id="logo-abogadas"> 
+                            <img class="img-fluid" src="assets/logo-abogadasmx.png" alt="Logo AbogadasMX">
+                        </div>
+                        <div class="col-10 col-md-6 mx-auto" id="logo-dc">
+                            <img class="img-fluid" src="assets/logo-dc.png" alt="Logo DC">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="landing-menu">
+            <div class="container">
+                <!-- Intro paragraph-->
+                <div class="row justify-content-center pt-5">
+                    <div class="col-11 col-md-9">
+                        <p class="default-body">
+                            Las abogadas trabajan cada día para garantizar los derechos de otras personas. Pero ¿ellas tienen garantizado el derecho a la igualdad?
+                            <br />
+                            <br />
+                            En esta plataforma se pueden explorar las brechas que viven las mujeres en México que se dedican al derecho, tanto en comparación con los hombres de su profesión como frente a otras profesiones y según otras características sociodemográficas.
+                            <br />
+                            Explora sus brechas de ingresos, de trabajo de cuidados, y de violencia, entre otras.
+                        </p>
+                    </div>
+                </div>
+
+
+                <!-- Explora la plataforma -->
+                <div class="row justify-content-center pb-2">
+                    <div id="explorar-box" class="col-4 pt-1">
+                        <h2 id="explorar-text">
+                            Explora la plataforma:
+                        </h2>
+                    </div>
+                </div>
+
+
+                <!-- Page buttons -->
+                <div class="row justify-content-center p-10 d-none d-md-flex">
+                    <div class="col-10">
+                        <div class="row">
+                            <div id="btn-perfiles-0" class="col p-2 btn-container">
+                                <a href="#perfiles">
+                                    <img class="img-fluid btn-inicio" src="assets/boton-perfiles.png" alt="Botón perfiles">
+                                </a>
+                                <div class="btn-perfiles">
+                                </div>
+                            </div>
+                            <div id="btn-genero-0" class="col p-2 btn-container">
+                                <a href="#genero">
+                                    <img class="img-fluid btn-inicio" src="assets/boton-genero.png" alt="Botón género">
+                                </a>
+                                <div class="btn-perfiles"></div>
+                            </div>
+                            <div id="btn-abogadas-0" class="col p-2 btn-container">
+                                <a href="#abogadas">
+                                    <img class="img-fluid btn-inicio" src="assets/boton-abogadas.png" alt="Botón abogadas">
+                                </a>
+                                <div class="btn-perfiles"></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div id="btn-cuidados-0" class="col p-2 btn-container">
+                                <a href="#cuidados">
+                                    <img class="img-fluid btn-inicio" src="assets/boton-cuidados.png" alt="Botón cuidados">
+                                </a>
+                                <div class="btn-perfiles"></div>
+                            </div>
+                            <div id="btn-violencia-0" class="col p-2 btn-container">
+                                <a href="#violencia">
+                                    <img class="img-fluid btn-inicio" src="assets/boton-violencia.png" alt="Botón violencia">
+                                </a>
+                                <div class="btn-perfiles"></div>
+                            </div>
+                            <div class="col p-2"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Page buttons mobile -->
+                <div class="row justify-content-center d-md-none">
+                    <div class="col-11">
+                        <div class="row mx-auto">
+                            <a href="#perfiles" id="btn-perfiles-6">
+                                <img class="img-fluid mb-1 rgba-grey-strong" src="assets/boton-perfiles.png" alt="Botón perfiles">
+                            </a>
+                            <a href="#genero" id = "btn-genero-6">
+                                <img class="img-fluid mb-1" src="assets/boton-genero.png" alt="Botón género">
+                            </a>
+                            <a href="#abogadas" id = "btn-abogadas-6">
+                                <img class="img-fluid mb-1" src="assets/boton-abogadas.png" alt="Botón abogadas">
+                            </a>
+                            <a href="#cuidados" id = "btn-cuidados-6">
+                                <img class="img-fluid mb-1" src="assets/boton-cuidados.png" alt="Botón cuidados">
+                            </a>
+                            <a href="#violencia" id = "btn-violencia-6">
+                                <img class="img-fluid mb-1" src="assets/boton-violencia.png" alt="Botón violencia">
+                            </a>                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </body>
+
+    <!-- ¿Quiénes son las abogadas en México? -->
+    <body>
+        <section id="perfiles">
+            <!-- Nav bar -->
+            <nav class="row">
+                <div class="container-fluid header p-0">
+                    <div id="btn-landing-1" class="col-md-6 col-3 m-1 ml-3 m-md-0 pl-md-5">
+                        <a href="#landing-menu">
+                            <img class="img-fluid p-1 p-md-3" src="assets/logo-dd-small.png" alt="Logo Derecho Desigual Small">
+                        </a>
+                    </div>
+                    <div class="col-md-6 col-4 d-flex flex-row justify-content-end pr-md-5">
+                        <img class="img-fluid pt-md-3 pb-md-3 pr-md-3" src="assets/logo-abogadasmx-white.png" alt="Logo Abogadas Small">
+                        <img class="img-fluid ml-2 m-md-0 pt-md-3 pb-md-3" src="assets/logo-dc-white.png" alt="Logo DC Small">
+                    </div>
+                </div>
+            </nav>
+
+
+            <!-- Top menu -->
+            <div class="col-10 mx-auto">
+                <div class="row top-menu">
+                    <div id="btn-perfiles-1" class="col-2 selected-menu-text">
+                        <a href="#perfiles">
+                            ¿Quiénes son las abogadas en México?
+                        </a>
+                    </div>
+                    <div id="btn-genero-1" class="col p-2 default-menu-text">
+                        <a href="#genero">
+                            Desigualdad de género en el derecho
+                        </a>
+                    </div>
+                    <div id="btn-abogadas-1" class="col-2 default-menu-text">
+                        <a href="#abogadas">
+                            Disparidades entre las abogadas
+                        </a>
+                    </div>
+                    <div id="btn-cuidados-1" class="col-2 default-menu-text">
+                        <a href="#cuidados">
+                            Las abogadas y el cuidado
+                        </a>
+                    </div>
+                    <div id="btn-violencia-1" class="col-2 default-menu-text">
+                        <a href="#violencia">
+                            Violencia de género en el derecho
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Intro -->
+            <div class="col-11 mx-auto">
+                <div class="row">
+                    <div class="col-md-4 col-6 d-flex align-items-center">
+                        <img class="img-fluid" src="assets/perfiles-icon.png" alt="Icon perfiles">
+                    </div>
+                    <div class="col-md-7 col-6 d-flex align-items-center">
+                        <div class="row">
+                            <div class = "default-intro">
+                                {{textMostCommonProfile}}
+                            </div>
+                            <div class = "default-intro">
+                                <br />
+                                Sin embargo, las abogadas del país son muy diversas. En esta sección puedes ver cómo sus perfiles e ingresos se comparan con los de los hombres abogados y de las mujeres no abogadas, además de cómo ha cambiado la prevalencia de la abogacía como profesión a lo largo del tiempo.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Perfiles de las abogadas -->
+            <div class="col-11 sub-slide mx-auto">
+                <h1 class="default-subtitle" style="color:#4C37CB;">
+                    Perfiles de las abogadas
+                </h1>
+                <div class="col-11 col-md-9 mx-auto">
+                    <div class="row default-body justify-content-center">
+                        Para comparar los perfiles de las abogadas con los de los abogados y las mujeres no abogadas con estudios universitarios, selecciona primero si prefieres definir a las personas abogadas por su formación (es decir, personas que estudiaron derecho sin importar si ejercen) o por su ocupación actual (es decir, personas que actualmente ejercen como abogades).
+                    </div>
+                </div>
+                <div class="row mx-auto justify-content-center">
+                    <div class="col-12 col-md-4 default-dropdown text-md-left">
+                        {{selectLawyerDef}}
+                    </div>
+                    <div class="col-12 col-md-4 default-dropdown text-md-left">
+                        {{selectVarInterestPerfiles}}
+                    </div>
+                    <div class="col-12 col-md-2 default-checkbox">
+                        {{selectCompGroupsPerfiles}}
+                    </div>
+                    <div class="col-12 col-md-10 p-0">
+                        {{plotPerfilesDist}}
+                    </div>
+                </div>
+            </div>
+
+
+            <!--- Ingresos -->
+            <div class="col-11 mx-auto sub-slide">
+                <h1 class="default-subtitle" style="color:#4C37CB;">
+                    Ingresos
+                </h1>
+                <div class="col-11 col-md-9 mx-auto">
+                    <div class="row default-body">
+                        {{textIncomeIntro}}
+                    </div>
+                </div>
+                <div class="row mx-auto justify-content-center">
+                    <div class="col-12 col-md-2 default-checkbox">
+                        {{selectCompGroupsIncome}}
+                    </div>
+                    <div class="col-12 col-md-10 p-md-0">
+                        {{plotIncomeDist}}
+                    </div>
+                </div>
+                <div class="col-9 col-md-5 mx-auto">
+                    <div class="row default-hallazgos" style="color:#4C37CB;">
+                        {{textWomenIncome}}
+                    </div>
+                </div>
+                <div class="col-11 col-md-9 mx-auto">
+                    <div class="row default-body justify-content-center">
+                        Aunque sus salarios se parecen más a los de los hombres en su profesión que a los del resto de las mujeres con licenciatura, las abogadas siguen ganando menos que sus contrapartes masculinas en el derecho. 
+                        <br />
+                        <br />
+                        {{text13kIncome}}
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Prevalencia de la abogacía -->
+            <div class="col-11 mx-auto sub-slide" style="border-bottom: 0px;">
+                <h1 class="default-subtitle" style="color:#4C37CB;">
+                    Prevalencia de la abogacía
+                </h1>
+                <div class="col-11 col-md-9 mx-auto">
+                    <div class="row default-body justify-content-center">
+                        ¿Cada vez hay más o menos abogadas? Se puede estimar este cambio al tomar el porcentaje de personas de diferentes edades que estudiaron Derecho. 
+                        <br />
+                        <br />
+                        Si hay proporcionalmente más personas jóvenes que personas mayores que son abogades de formación, se puede asumir que se ha vuelto una profesión más común a lo largo de las últimas décadas.
+                    </div>
+                </div>
+                <div class="col-12">
+                    {{plotLawPreval}} 
+                </div>
+                <div class="row">
+                    <div class="col-9 col-md-5 mx-auto">
+                        <div class="row default-hallazgos" style="color:#4C37CB;">
+                            {{textLawPreval}}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-11 col-md-9 mx-auto">
+                    <div class="row default-body justify-content-center">
+                        Aunque entre la población con estudios universitarios, el porcentaje de hombres que estudiaron Derecho se ha mantenido relativamente estable, a lo largo del tiempo ha ocurrido un aumento en el porcentaje de mujeres con esta formación.
+                        <br />
+                        <br />
+                        Este aumento se nota particularmente entre mujeres de generaciones mayores de aproximadamente 50 años– entre mujeres más jóvenes, este porcentaje se ha mantenido más o menos igual.
+                        <br />
+                        <br />
+                        Para ver cómo esta prevalencia de la abogacía varía por entidad federativa, selecciona abajo una definición de “personas abogadas” e indica si prefieres comparar entre mujeres, hombres o la población en general.
+                    </div>
+                </div>
+                <div class="row mx-auto justify-content-center" style="padding-bottom: 10%">
+                    <div class="col-12 col-md-5 default-dropdown text-md-left">
+                        {{selectLawyerDefMapPrev}}
+                    </div>
+                    <div class="col-12 col-md-5 default-dropdown text-md-left">
+                        {{selectSexoMapPrev}}
+                    </div>
+                    <div class="col-12 col-md-8 p-0">
+                        <div class="square-container">
+                            <div class="square-content">
+                              {{mapLawPreval}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </body>
+
+    <!-- Genero -->
+    <body>
+        <section id="genero">
+            <!-- Nav bar -->
+            <nav class="row">
+                <div class="container-fluid header p-0">
+                    <div id="btn-landing-2" class="col-md-6 col-3 m-1 ml-3 m-md-0 pl-md-5">
+                        <a href="#landing-menu">
+                            <img class="img-fluid p-1 p-md-3" src="assets/logo-dd-small.png" alt="Logo Derecho Desigual Small">
+                        </a>
+                    </div>
+                    <div class="col-md-6 col-4 d-flex flex-row justify-content-end pr-md-5">
+                        <img class="img-fluid pt-md-3 pb-md-3 pr-md-3" src="assets/logo-abogadasmx-white.png" alt="Logo Abogadas Small">
+                        <img class="img-fluid ml-2 m-md-0 pt-md-3 pb-md-3" src="assets/logo-dc-white.png" alt="Logo DC Small">
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Top menu -->
+            <div class="col-10 mx-auto">
+                <div class="row top-menu">
+                    <div id="btn-perfiles-2" class="col-2 default-menu-text">
+                        <a href="#perfiles">
+                            ¿Quiénes son las abogadas en México?
+                        </a>
+                    </div>
+                    <div id="btn-genero-2" class="col-2 selected-menu-text">
+                        <a href="#genero">
+                            Desigualdad de género en el derecho
+                        </a>
+                    </div>
+                    <div id="btn-abogadas-2" class="col-2 default-menu-text">
+                        <a href="#abogadas">
+                            Disparidades entre las abogadas
+                        </a>
+                    </div>
+                    <div id="btn-cuidados-2" class="col-2 default-menu-text">
+                        <a href="#cuidados">
+                            Las abogadas y el cuidado
+                        </a>
+                    </div>
+                    <div id="btn-violencia-2" class="col-2 default-menu-text">
+                        <a href="#violencia">
+                            Violencia de género en el derecho
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Intro -->
+            <div class="col-11 mx-auto">
+                <div class="row">
+                    <div class="col-md-4 col-6 d-flex align-items-center">
+                        <img class="img-fluid" src="assets/genero-icon.png" alt="Icon género">
+                    </div>
+                    <div class="col-md-7 col-6 d-flex align-items-center">
+                        <div class="row">
+                            <div class="default-intro">
+                                {{textGeneroIntro}}
+                            </div>
+                            <div class = "default-intro">
+                                <br />
+                                En esta sección, se puede ver cómo estas cifras cambian por área de trabajo y a lo largo del tiempo, así como las brechas que las abogadas enfrentan en sus salarios y participación laboral frente a los hombres de su profesión.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Paridad de género -->
+            <div class="col-11 mx-auto sub-slide">
+                <h1 class="default-subtitle" style="color:#DD6C4D;">
+                    Paridad de género
+                </h1>
+                <div class="col-11 col-md-9 mx-auto">
+                    <div class="row default-body justify-content-center">
+                        En la siguiente gráfica se pueden observar diferencias en la paridad de género entre personas que ejercen el derecho según el sector en el cual se desempeñan, donde el ancho de las columnas representa el número de abogades que trabajan en ese sector.
+                    </div>
+                </div>
+                <div class="col-12">
+                    {{plotParidadSector}}
+                </div>
+                <div class="col-11 col-md-9 mx-auto pt-3">
+                    <div class="row default-body justify-content-center">
+                        Para estimar la participación de las mujeres en la profesión de la abogacía a lo largo del tiempo, se puede usar la edad de las personas que estudiaron Derecho.
+                    </div>
+                </div>
+                <div class="col-12">
+                    {{plotParidadEdad}}
+                </div>
+                <div class="col-9 col-md-5 mx-auto">
+                    <div class="row default-hallazgos" style="color:#DD6C4D;">
+                        {{textParidadEdad}}
+                    </div>
+                </div>
+                <div class="col-11 col-md-9 mx-auto">
+                    <div class="row default-body justify-content-center">
+                        Como existe un mayor porcentaje de mujeres entre les abogades jóvenes que entre les abogades mayores, se puede deducir que a lo largo del tiempo, ha aumentado la proporción de personas en la profesión que son mujeres. 
+                        <br />
+                        <br /> 
+                        Abajo se puede observar cómo estas cifras de paridad de género en el derecho varían por entidad federativa.
+                    </div>
+                </div> 
+                <div class="row mx-auto justify-content-center">
+                    <div class="col-12 col-md-10 default-dropdown">
+                        {{selectLawyerDefMapParidad}}
+                    </div>
+                    <div class="col-12 col-md-8 p-0">
+                        <div class="square-container">
+                            <div class="square-content">
+                              {{mapParidad}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Brecha salarial -->
+            <div class="col-11 mx-auto sub-slide pt-5 pt-md-3">
+                <h1 class="default-subtitle" style="color:#DD6C4D;">
+                    Brecha salarial de género
+                </h1>
+                <div class="col-11 col-md-9 mx-auto">
+                    <div class="row default-body justify-content-center">
+                        {{textBrechaGeneroIntro}}
+                    </div>
+                </div>
+                <div class="col-12 pt-3">
+                    {{plotBrechaGeneroOcup}}
+                </div>
+                <div class="col-11 col-md-9 mx-auto pt-3">
+                    <div class="row default-body justify-content-center">
+                        A continuación, se puede explorar cómo esta brecha se compara con la de otras ocupaciones, así como su variación por edad, sector, y dependiendo de si son madres o están casadas. 
+                    </div>
+                </div>
+                <div class="row mx-auto justify-content-center"> 
+                    <div class="col-12 col-md-10 default-dropdown">
+                        {{selectBrechaGeneroVar}}
+                    </div>
+                </div> 
+                <div class="col-12">
+                    {{plotBrechaHeatmap}}
+                </div>
+            </div>
+            
+            <!-- Participación en el mercado laboral -->
+            <div class="col-11 mx-auto sub-slide">
+                <h1 class="default-subtitle" style="color:#DD6C4D;">
+                    Brecha de participación en el mercado laboral
+                </h1>
+                <div class="col-11 col-md-9 mx-auto">
+                    <div class="row default-body justify-content-center">
+                        {{textParticipIntro}}
+                    </div>
+                    <div class="row default-body justify-content-center pt-0">
+                        {{textParticipCompare}}
+                    </div>
+                </div>
+                <div class="col-12 pt-2">
+                    {{plotParticipCarreraGenero}}
+                </div>
+                <div class="col-9 col-md-5 mx-auto pb-3">
+                    <div class="row default-hallazgos" style="color:#DD6C4D;">
+                        {{textParticipHallazgos}}
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ejercicio de la carrera -->
+            <div class="col-11 mx-auto sub-slide" style="border-bottom: 0px;">
+                <h1 class="default-subtitle" style="color:#DD6C4D;">
+                    Ejercicio de la carrera
+                </h1>
+                <div class="col-11 col-md-9 mx-auto">
+                    <div class="row default-body justify-content-center">
+                        Además de la participación en el mercado laboral, es importante considerar hasta qué punto las mujeres que estudiaron Derecho ejercen esta carrera, ya que podrían ejercer alguna otra profesión. La siguiente gráfica muestra el porcentaje de personas que estudiaron Derecho que ejerce específicamente como abogade, juez, o coordinadare/jefe en servicios jurídicos.
+                    </div>
+                </div>
+                <div class="col-12">
+                    {{plotEjercicioGenero}}
+                </div>
+                <div class="col-9 col-md-5 mx-auto" style="padding-bottom:10%">
+                    <div class="row default-hallazgos" style="color:#DD6C4D;">
+                        {{textEjercicioSummary}}
+                    </div>
+                </div>
+            </div>
+        </section>
+    </body>
+
+    <!-- Abogadas -->
+    <body>
+        <section id="abogadas">
+
+            <!-- Nav bar -->
+            <nav class="row">
+                <div class="container-fluid header p-0">
+                    <div id="btn-landing-3" class="col-md-6 col-3 m-1 ml-3 m-md-0 pl-md-5">
+                        <a href="#landing-menu">
+                            <img class="img-fluid p-1 p-md-3" src="assets/logo-dd-small.png" alt="Logo Derecho Desigual Small">
+                        </a>
+                    </div>
+                    <div class="col-md-6 col-4 d-flex flex-row justify-content-end pr-md-5">
+                        <img class="img-fluid pt-md-3 pb-md-3 pr-md-3" src="assets/logo-abogadasmx-white.png" alt="Logo Abogadas Small">
+                        <img class="img-fluid ml-2 m-md-0 pt-md-3 pb-md-3" src="assets/logo-dc-white.png" alt="Logo DC Small">
+                    </div>
+                </div>
+            </nav>
+
+
+            <!-- Top menu -->
+            <div class="col-10 mx-auto">
+                <div class="row top-menu">
+                    <div id="btn-perfiles-3" class="col-2 default-menu-text">
+                        <a href="#perfiles">
+                            ¿Quiénes son las abogadas en México?
+                        </a>
+                    </div>
+                    <div id="btn-genero-3" class="col-2 default-menu-text">
+                        <a href="#genero">
+                            Desigualdad de género en el derecho
+                        </a>
+                    </div>
+                    <div id="btn-abogadas-3" class="col-2 selected-menu-text">
+                        <a href="#abogadas">
+                            Disparidades entre las abogadas
+                        </a>
+                    </div>
+                    <div id="btn-cuidados-3" class="col-2 default-menu-text">
+                        <a href="#cuidados">
+                            Las abogadas y el cuidado
+                        </a>
+                    </div>
+                    <div id="btn-violencia-3" class="col-2 default-menu-text">
+                        <a href="#violencia">
+                            Violencia de género en el derecho
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Intro -->
+            <div class="col-11 mx-auto">
+                <div class="row">
+                    <div class="col-md-4 col-6 d-flex align-items-center">
+                        <img class="img-fluid" src="assets/abogadas-icon.png" alt="Icon abogadas">
+                    </div>
+                    <div class="col-md-7 col-6 d-flex align-items-center">
+                        <div class="row">
+                            <div class="default-intro">
+                                Además de las desigualdades entre los abogados y las abogadas, existen también disparidades entre las abogadas en sí por la diversidad de realidades laborales que enfrentan las mujeres en México.
+                                <br />
+                                <br />
+                                Estas realidades varían según la maternidad, el nivel socioeconómico y el origen étnico, para nombrar algunos ejes de discriminación. En esta página se exploran con mayor profundidad algunas de estas desigualdades.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Por situación familiar -->
+            <div class="col-11 mx-auto sub-slide">
+                <h1 class="default-subtitle" style="color:#69BDB3;">
+                    Por situación familiar 
+                </h1>
+                <div class="col-11 col-md-9 mx-auto">
+                    <div class="row default-body justify-content-center">
+                        {{textSitFamIntro}}
+                    </div>
+                </div>
+                <div class="row mx-auto justify-content-center"> 
+                    <div class="col-12 col-md-10 default-dropdown">
+                        {{selectSitFamAbgasVar}}
+                    </div>
+                </div> 
+                <div class = "col-12">
+                    {{plotSitFamAbgas}}
+                </div>
+            </div>
+
+            <!-- Por pertenencia étnica -->
+            <div class="col-11 mx-auto sub-slide">
+                <h1 class="default-subtitle" style="color:#69BDB3;">
+                    Por pertenencia étnica 
+                </h1>
+                <div class="col-11 col-md-9 mx-auto">
+                    <div class="row default-body justify-content-center">
+                        {{textIndigPercent}}
+                    </div>
+                    <div class="row default-body justify-content-center pt-0">
+                        {{textIndigSubrep}}
+                    </div>
+                </div>
+                <div class = "col-12">
+                    {{plotIndigSubrep}}
+                </div>
+                <div class="col-9 col-md-5 mx-auto pb-3">
+                    <div class="row default-hallazgos" style="color:#69BDB3;">
+                        {{textIndigBrecha}}
+                    </div>
+                </div>
+            </div>
+
+            <!-- Por discapacidad -->
+            <div class="col-11 mx-auto sub-slide">
+                <h1 class="default-subtitle" style="color:#69BDB3;">
+                    Por discapacidad 
+                </h1>
+                <div class = "col-12 pt-3">
+                    {{infografDiscap}}
+                </div>
+                <div class="col-9 col-md-5 mx-auto pb-3 pt-3 pb-md-5 pt-md-5">
+                    <div class="row default-hallazgos" style="color:#69BDB3;">
+                        {{textDiscap}}
+                    </div>
+                </div>
+                <div class="col-12">
+                    {{plotDiscapSubrep}}
+                </div>
+            </div>
+            
+            <!-- Por tipo de universidad -->
+            <div class="col-11 mx-auto sub-slide" style="border-bottom: 0px;">
+                <h1 class="default-subtitle" style="color:#69BDB3;">
+                    Por tipo de universidad 
+                </h1>
+                <div class="col-11 col-md-9 mx-auto">
+                    <div class="row default-body justify-content-center">
+                        {{textUnivDist}}
+                    </div>
+                    <div class="row default-body justify-content-center pt-0">
+                        Estas diferencias en su formación pueden influir en las oportunidades laborales que se les presentan a las abogadas a lo largo de sus carreras, como por ejemplo, en términos de su sector de trabajo y sus ingresos, como se muestra a continuación.
+                    </div>
+                </div>
+                <div class = "col-12">
+                    {{plotUnivSector}}
+                </div>
+                <div class="col-9 col-md-5 mx-auto" style="padding-bottom:10%">
+                    <div class="row default-hallazgos" style="color:#69BDB3;">
+                        {{textUnivBrecha}}
+                    </div>
+                </div>
+            </div>
+        </section>
+    </body>
+
+    <!-- Cuidados -->
+    <body>
+        <section id="cuidados">
+
+             <!-- Nav bar -->
+             <nav class="row">
+                <div class="container-fluid header p-0">
+                    <div id="btn-landing-4" class="col-md-6 col-3 m-1 ml-3 m-md-0 pl-md-5">
+                        <a href="#landing-menu">
+                            <img class="img-fluid p-1 p-md-3" src="assets/logo-dd-small.png" alt="Logo Derecho Desigual Small">
+                        </a>
+                    </div>
+                    <div class="col-md-6 col-4 d-flex flex-row justify-content-end pr-md-5">
+                        <img class="img-fluid pt-md-3 pb-md-3 pr-md-3" src="assets/logo-abogadasmx-white.png" alt="Logo Abogadas Small">
+                        <img class="img-fluid ml-2 m-md-0 pt-md-3 pb-md-3" src="assets/logo-dc-white.png" alt="Logo DC Small">
+                    </div>
+                </div>
+            </nav>
+
+
+            <!-- Top menu -->
+            <div class="col-10 mx-auto">
+                <div class="row top-menu">
+                    <div id="btn-perfiles-4" class="col-2 default-menu-text">
+                        <a href="#perfiles">
+                            ¿Quiénes son las abogadas en México?
+                        </a>
+                    </div>
+                    <div id="btn-genero-4" class="col-2 default-menu-text">
+                        <a href="#genero">
+                            Desigualdad de género en el derecho
+                        </a>
+                    </div>
+                    <div id="btn-abogadas-4" class="col-2 default-menu-text">
+                        <a href="#abogadas">
+                            Disparidades entre las abogadas
+                        </a>
+                    </div>
+                    <div id="btn-cuidados-4" class="col-2 selected-menu-text">
+                        <a href="#cuidados">
+                            Las abogadas y el cuidado
+                        </a>
+                    </div>
+                    <div id="btn-violencia-4" class="col-2 default-menu-text">
+                        <a href="#violencia">
+                            Violencia de género en el derecho
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Intro -->
+            <div class="col-11 mx-auto">
+                <div class="row">
+                    <div class="col-md-4 col-6 d-flex align-items-center">
+                        <img class="img-fluid" src="assets/cuidados-icon.png" alt="Icon cuidados">
+                    </div>
+                    <div class="col-md-7 col-6 d-flex align-items-center">
+                        <div class="row">
+                            <div class="default-intro">
+                                Muchas mujeres que participan en el mercado laboral enfrentan una doble carga de trabajo: una en su trabajo remunerado y otra no remunerada de trabajo de cuidados en sus hogares. Por lo tanto, la red de apoyo con la que cuentan las mujeres en su empleo y dentro de sus familias puede influir en la dimensión de esta doble carga.
+                                <br />
+                                <br />
+                                En esta sección, se observa cómo se ven la carga de trabajo y la red de apoyo para los cuidados con la que cuentan las abogadas.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Red de apoyo para los cuidados -->
+            <div class="col-11 mx-auto sub-slide">
+                <h1 class="default-subtitle" style="color:#F1A0DD;">
+                    ¿Cómo se ve la red de apoyo para los cuidados con la que cuentan las abogadas?
+                </h1>
+                <div class = "col-12 pt-3">
+                    {{infografCuidados}}
+                </div>
+            </div>
+
+            <!-- Cuidados vs. mercado laboral -->
+            <div class="col-11 mx-auto sub-slide" style="border-bottom: 0px;">
+                <h1 class="default-subtitle" style="color:#F1A0DD;">
+                    Los cuidados y el mercado laboral
+                </h1>
+                <div class="col-11 col-md-9 mx-auto">
+                    <div class="row default-body justify-content-center">
+                        Explora cómo los ingresos y la participación laboral de las abogadas se relacionan con la carga de cuidados que enfrentan o la red de apoyo que tienen para atenderlos en sus hogares. 
+                    </div>
+                </div>
+                <div class="row mx-auto justify-content-center"> 
+                    <div class="col-12 col-md-5 default-dropdown pl-md-0 pr-md-5">
+                         {{selectCuidadosResultado}}
+                    </div>
+                    <div class="col-12 col-md-5 default-dropdown">
+                         {{selectCuidadosIndicador}}
+                    </div>
+                    <div class="col-12">
+                        {{plotCuidadosOutcomes}}
+                    </div>
+                </div>
+                <div class="col-9 col-md-5 mx-auto">
+                    <div class="row default-hallazgos" style="color:#F1A0DD;">
+                        Entre las mujeres que trabajan como abogadas, en general no hay una relación clara entre sus ingresos y las horas que dedican al trabajo de cuidados. En promedio, las abogadas que viven con hombres que dedican más tiempo a estos quehaceres ganan ligeramente más.
+                    </div>
+                </div>
+                <div class="col-11 col-md-9 mx-auto" style="padding-bottom:10%">
+                    <div class="row default-body justify-content-center">
+                        {{textCuidadosParticip}}
+                    </div>
+                    <div class="row default-body justify-content-center pt-0">
+                        Sin embargo, en términos del tiempo que los hombres de sus hogares aportan al trabajo de cuidado, casi no existen diferencias entre las abogadas que sí participan en el mercado laboral y las que no.
+                    </div>
+                </div>
+            </div>
+        </section>
+    </body>
+
+    <!-- Violencia -->
+    <body>
+        <section id="violencia">
+
+             <!-- Nav bar -->
+             <nav class="row">
+                <div class="container-fluid header p-0">
+                    <div id="btn-landing-5" class="col-md-6 col-3 m-1 ml-3 m-md-0 pl-md-5">
+                        <a href="#landing-menu">
+                            <img class="img-fluid p-1 p-md-3" src="assets/logo-dd-small.png" alt="Logo Derecho Desigual Small">
+                        </a>
+                    </div>
+                    <div class="col-md-6 col-4 d-flex flex-row justify-content-end pr-md-5">
+                        <img class="img-fluid pt-md-3 pb-md-3 pr-md-3" src="assets/logo-abogadasmx-white.png" alt="Logo Abogadas Small">
+                        <img class="img-fluid ml-2 m-md-0 pt-md-3 pb-md-3" src="assets/logo-dc-white.png" alt="Logo DC Small">
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Top menu -->
+            <div class="col-10 mx-auto">
+                <div class="row top-menu">
+                    <div id="btn-perfiles-5" class="col-2 default-menu-text">
+                        <a href="#perfiles">
+                            ¿Quiénes son las abogadas en México?
+                        </a>
+                    </div>
+                    <div id="btn-genero-5" class="col-2 default-menu-text">
+                        <a href="#genero">
+                            Desigualdad de género en el derecho
+                        </a>
+                    </div>
+                    <div id="btn-abogadas-5" class="col-2 default-menu-text">
+                        <a href="#abogadas">
+                            Disparidades entre las abogadas
+                        </a>
+                    </div>
+                    <div id="btn-cuidados-5" class="col-2 default-menu-text">
+                        <a href="#cuidados">
+                            Las abogadas y el cuidado
+                        </a>
+                    </div>
+                    <div id="btn-violencia-5" class="col-2 selected-menu-text">
+                        <a href="#violencia">
+                            Violencia de género en el derecho
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Intro -->
+            <div class="col-11 mx-auto">
+                <div class="row">
+                    <div class="col-md-4 col-6 d-flex align-items-center">
+                        <img class="img-fluid" src="assets/violencia-icon.png" alt="Icon violencia">
+                    </div>
+                    <div class="col-md-7 col-6 d-flex align-items-center">
+                        <div class="row">
+                            <div class="default-intro">
+                                Además de considerar los ingresos y participación laboral de las abogadas, al analizar la desigualdad de género en el derecho, es importante reconocer que las mujeres en esta y otras profesiones también viven ciertas formas de discriminación y violencia en el ámbito laboral solo por el hecho de ser mujeres.
+                                <br />
+                                <br />
+                                En esta sección se presenta información sobre la prevalencia de tales formas de violencia de género en el ámbito laboral de la abogacía en México.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Resumen violencia -->
+            <div class="col-11 mx-auto sub-slide">
+                <h1 class="default-subtitle" style="color:#D79438;">
+                    Entre la población de abogadas en México, a…
+                </h1>
+                <div class = "col-12 pt-3">
+                    <div class="row mx-auto">
+                        {{infografViolencia}}
+                    </div>
+                </div>
+            </div>
+
+            <!-- Violencia por características sociodemográficas -->
+            <div class="col-11 mx-auto sub-slide">
+                <h1 class="default-subtitle" style="color:#D79438;">
+                    Violencia laboral por características sociodemográficas
+                </h1>
+                <div class="col-11 col-md-9 mx-auto">
+                    <div class="row default-body justify-content-center">
+                        Las formas de violencia y discriminación que viven las abogadas también pueden depender de sus características sociodemográficas o en el sector en el cual se desempeñan profesionalmente.
+                    </div>
+                </div>
+                <div class="row mx-auto justify-content-center"> 
+                    <div class="col-12 col-md-10 default-dropdown">
+                         {{selectViolenciaVar}}
+                    </div>
+                    <div class="col-12">
+                        {{plotViolenciaEmbzo}}
+                    </div>
+                    <div class="col-12 pt-3">
+                        {{plotViolenciaAnio}}
+                    </div>
+                    <div class="col-12 pt-3">
+                        {{plotViolenciaLab}}
+                    </div>
+                </div>
+            </div>
+
+            <!-- Violencia por características sociodemográficas -->
+            <div class="col-11 mx-auto sub-slide" style="border-bottom: 0px;">
+                <h1 class="default-subtitle" style="color:#D79438;">
+                    Violencia laboral por ocupación
+                </h1>
+                <div class="col-11 col-md-9 mx-auto">
+                    <div class="row default-body justify-content-center">
+                        Abajo se puede explorar cómo el derecho se compara a otras profesiones en términos de estos indicadores de violencia de género en el ámbito laboral.
+                    </div>
+                </div>
+                <div class="row mx-auto justify-content-center" style="padding-bottom:10%"> 
+                    <div class="col-12 col-md-10 default-dropdown">
+                         {{selectTipoViolencia}}
+                    </div>
+                    <div class="col-12">
+                        {{plotViolenciaOcup}}
+                    </div>
+                </div>
+            </div>
+        </section>
+    </body> 
+</html>
