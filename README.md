@@ -6,8 +6,6 @@ Este repositorio crea una plataforma interactiva de datos sobre las abogadas de 
 
 Importa, limpia y prepara datos de la ENOE, la ENDIREH y el Censo de Población y Vivienda y visualiza estos datos a través de una página web.
 
-La rama de Git utilizada para correr este repo es la de `stage`.
-
 ## Directorios
 
 * `enoe`
@@ -66,10 +64,9 @@ La rama de Git utilizada para correr este repo es la de `stage`.
         * `run-app.R` junta las UIs y servidores (a través de los scripts de `ui.R` y `server.R`) y corre la aplicación Shiny que sirve como base de la plataforma
 
 
-
 ## Organización
 
-Con la excepción del directorioi `app/` y sus subdirectorios, cada uno de los directorios de este repositorio contiene los siguientes subdirectorios para organizar y estandarizar el flujo de datos en este proyecto:
+Con la excepción del directorio `app/` y sus subdirectorios, cada uno de los directorios de este repositorio antes mencionados contiene los siguientes subdirectorios para organizar y estandarizar el flujo de datos en este proyecto:
 
 * `input`: datos de insumo antes de ser transformados
 
@@ -92,5 +89,20 @@ Además, algunos directorios contienen el siguiente subdirectorio:
 * ENDIREH: se tendrá que actualizar de forma manual, ya que los nombres de las variables y tablas cambian cada vez que se realiza la encuesta. Los microdatos de esta encuesta se publican aproximadamente cada 5 años. La última versión fue realizada en 2021.
 
 * Censo de Población y Vivienda: se tendrá que actualizar de forma manual. 
+
+## Deploy de la plataforma
+Para subir el contenido de la plataforma de los archivos locales a una página web, se utiliza la aplicación Docker. Los siguientes archivos/directorios que pertienen a este proceso son los siguientes:
+
+* `nginx`
+
+* `shinyproxy`
+
+* `Dockerfile`
+
+* `Dockerfile.BAK`
+
+* `dockercompose.yaml`
+
+Para más detalles sobre el deploy de la plataforma a través de Docker, favor de consultar el archivo `Dockerfile`.
 
 <!-- done. -->
