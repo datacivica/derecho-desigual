@@ -18,7 +18,7 @@ ui <- function() {
                    selectLawyerDefMapPrev = select_lawyer_def_map_ui("perfiles"),
                    selectSexoMapPrev = select_sexo_map_ui("perfiles"),
                    mapLawPreval = law_preval_map_ui("perfiles"),
-                   
+
                    # GÉNERO
                    textGeneroIntro = genero_intro_text_ui("genero"),
                    plotParidadSector = paridad_sector_plot_ui("genero"),
@@ -37,7 +37,7 @@ ui <- function() {
                    selectEjercicioGeneroVar = select_ejercicio_var_ui("genero"),
                    plotEjercicioGenero = plot_ejercicio_interactive_ui("genero"),
                    textEjercicioSummary = text_ejercicio_summary_ui("genero"),
-                   
+
                    # ABOGADAS
                    textSitFamIntro = sit_fam_intro_text_ui("abogadas"),
                    selectSitFamAbgasVar = select_sit_fam_var_ui("abogadas"),
@@ -52,14 +52,14 @@ ui <- function() {
                    textUnivDist = univ_dist_text_ui("abogadas"),
                    plotUnivSector = univ_sector_plot_ui("abogadas"),
                    textUnivBrecha = univ_brecha_text_ui("abogadas"),
-                   
+
                    # CUIDADOS
                    infografCuidados = infographic_cuidados_ui("cuidados"),
                    selectCuidadosResultado = select_cuidados_resultado_ui("cuidados"),
                    selectCuidadosIndicador = select_cuidados_indicador_ui("cuidados"),
                    plotCuidadosOutcomes = plot_cuidados_vs_outcomes_ui("cuidados"),
                    textCuidadosParticip = text_thrs_particip_ui("cuidados"),
-                   
+
                    # VIOLENCIA
                    infografViolencia = infographic_violencia_ui("violencia"),
                    selectViolenciaVar = select_violencia_var_ui("violencia"),

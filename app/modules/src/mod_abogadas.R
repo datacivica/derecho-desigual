@@ -8,7 +8,7 @@
 # TODO
 
 # Load required libraries
-pacman::p_load(shiny, stringr, ggplot2, dplyr, here, data.table)
+pacman::p_load(shiny, stringr, ggplot2, dplyr, here, data.table, forcats)
 
 # Files
 paths <- list(sit_fam_joined = here("prep-app/output/sit_fam_joined.csv"),
@@ -22,15 +22,14 @@ paths <- list(sit_fam_joined = here("prep-app/output/sit_fam_joined.csv"),
               perfiles = here("prep-app/output/perfiles.csv"))
 
 # Read data
-sit_fam <- fread(paths$sit_fam_joined) %>% 
+sit_fam <- fread(paths$sit_fam_joined) %>%
   mutate(edad_categ_10 = ifelse(edad_categ_10 == "21 a 29", "21 a 29 años", edad_categ_10),
          sector = factor(sector, levels = c("Otro",
                                             "Gobierno",
                                             "Empresa del sector privado",
                                             "Empresa personal")))
 
-indig_subrep <- fread(paths$indig_joined) #%>% 
-  #mutate(ocups_de_interes = factor(ocups_de_interes, levels = c("General", "Abogadas"))
+indig_subrep <- fread(paths$indig_joined)
 
 indig_brecha <- fread(paths$brecha_indig)
 
@@ -55,52 +54,52 @@ min_year_enoe <- sit_fam %>% pull(min_year) %>% unique()
 max_year_enoe <- sit_fam %>% pull(max_year) %>% unique()
 
 perc_indig_pop <- indig_subrep %>%
-  filter(ocups_de_interes == "General") %>% 
+  filter(ocups_de_interes == "General") %>%
   pull(perc_indig) * 100
-  
+
 perc_indig_abogada <- indig_subrep %>%
-  filter(ocups_de_interes == "Abogadas") %>% 
+  filter(ocups_de_interes == "Abogadas") %>%
   pull(perc_indig) * 100
 
 brecha_indig_abogadas <- indig_brecha %>%
   pull(brecha_centavos_menos)
 
 perc_discap_pop <- discap_subrep %>%
-  filter(ocups_de_interes == "General") %>% 
+  filter(ocups_de_interes == "General") %>%
   pull(perc_disc)
 
 perc_discap_abogada <- discap_subrep %>%
-  filter(ocups_de_interes == "Abogadas") %>% 
+  filter(ocups_de_interes == "Abogadas") %>%
   pull(perc_disc)
 
-univ_pub_abga <- univ_dist %>% 
+univ_pub_abga <- univ_dist %>%
   filter(dist_type == "law" & escuela_tipo == "pública") %>%
   pull(perc)
 
-univ_pub_gen <- univ_dist %>% 
+univ_pub_gen <- univ_dist %>%
   filter(dist_type == "general" & escuela_tipo == "pública") %>%
   pull(perc)
 
-univ_priv_abga <- univ_dist %>% 
+univ_priv_abga <- univ_dist %>%
   filter(dist_type == "law" & escuela_tipo == "privada") %>%
   pull(perc)
 
-univ_priv_gen <- univ_dist %>% 
+univ_priv_gen <- univ_dist %>%
   filter(dist_type == "general" & escuela_tipo == "privada") %>%
   pull(perc)
 
-univ_brecha_law <- univ_brecha %>% 
-  filter(gap_type == "law") %>% 
+univ_brecha_law <- univ_brecha %>%
+  filter(gap_type == "law") %>%
   pull(gap)
 
-abgas_madres <- (perfiles %>% 
-  filter(group == "Mujeres abogadas" & categ_type == "maternidad_e_con" & 
-           def_type == "ocup" & str_detect(categ_name, "con hijes")) %>% 
+abgas_madres <- (perfiles %>%
+  filter(group == "Mujeres abogadas" & categ_type == "maternidad_e_con" &
+           def_type == "ocup" & str_detect(categ_name, "con hijes")) %>%
   summarize(sum(categ_perc) / 10)) %>% pull() %>% round(0)
 
-abgas_casadas <- (perfiles %>% 
-                          filter(group == "Mujeres abogadas" & categ_type == "maternidad_e_con" & 
-                                   def_type == "ocup" & str_detect(tolower(categ_name), "casada")) %>% 
+abgas_casadas <- (perfiles %>%
+                          filter(group == "Mujeres abogadas" & categ_type == "maternidad_e_con" &
+                                   def_type == "ocup" & str_detect(tolower(categ_name), "casada")) %>%
                     summarize(sum(categ_perc) / 10)) %>% pull() %>% round(0)
 
 ingresos_title <- "Ingresos mensuales de las abogadas"
@@ -125,32 +124,32 @@ censo_caption_default <- "Fuente: Elaboración propia con datos del Censo de Pob
 
 # Define functions ====
 plot_sit_fam <- function(var_choice, mobile){
-  df <- sit_fam %>% 
+  df <- sit_fam %>%
     filter(var_type == var_choice)
-  
+
   subtitle_var <- "Desagregado por edad, maternidad y estado conyugal"
   muestra_insuficiente <- "Muestra insuficiente"
   label_size <- 4
-  
+
   if(mobile){
     subtitle_var <- str_wrap(subtitle_var, 33)
     muestra_insuficiente <- str_wrap(muestra_insuficiente, 10)
     label_size <- 3
   }
-  
+
   if(var_choice == "ingresos"){
     df$var_label <- paste0("$", df$var_value)
   }
-  
+
   if(var_choice %in% c("informal", "particip", "ejercicio")){
     df$var_label <- paste0(df$var_value, "%")
   }
-  
+
   if(var_choice %in% c("ingresos", "informal", "particip", "ejercicio")){
-    df <- df %>% 
+    df <- df %>%
       mutate(var_label = ifelse(str_detect(var_label, "insuficiente"),
                                 muestra_insuficiente, var_label))
-    
+
     plot <- ggplot(data = df, aes(x = 0, y = fct_rev(edad_categ_10))) +
       geom_tile(aes(fill = as.numeric(var_value))) +
       geom_label(aes(label = var_label), fill = "#faf4e8", color = "#242223",
@@ -165,7 +164,7 @@ plot_sit_fam <- function(var_choice, mobile){
       tema_abogadas +
       scale_fill_gradient(low = pal_gradient_purple["low"], high = pal_gradient_purple["high"])
   }
-  
+
   if(var_choice == "sector"){
     plot <- ggplot(data = df %>% select(-edad_categ_10), aes(x = factor(1), y = as.numeric(var_value), fill = sector)) +
       geom_bar(position = "stack", stat = "identity") +
@@ -180,9 +179,9 @@ plot_sit_fam <- function(var_choice, mobile){
             axis.text.x = element_blank(),
             axis.ticks.x = element_blank(),
             axis.title = element_blank())
-      
+
   }
-  
+
   return(plot)
 }
 
@@ -196,19 +195,19 @@ screen_size_test_ui <- function(id){
 
 test_ui <- function(id){
   ns <- NS(id)
-  
+
   textOutput(ns("clientdataText"))
 }
 
 sit_fam_intro_text_ui <- function(id){
   ns <- NS(id)
-  
+
   htmlOutput(ns("sit_fam_intro_text"))
 }
 
 select_sit_fam_var_ui <- function(id){
   ns <- NS(id)
-  
+
   selectInput(ns("sit_fam_var"), "Variable de interés:",
               choices = c("Ingresos" = "ingresos",
                           "Informalidad de empleo" = "informal",
@@ -219,70 +218,70 @@ select_sit_fam_var_ui <- function(id){
 
 sit_fam_plot_ui <- function(id){
   ns <- NS(id)
-  
+
   plotOutput(ns("sit_fam_plot"))
 }
 
 # SECTION 2: INDIGENEITY
 indig_percent_text_ui <- function(id){
   ns <- NS(id)
-  
+
   htmlOutput(ns("indig_percent_text"))
 }
 
 indig_subrep_text_ui <- function(id){
   ns <- NS(id)
-  
+
   htmlOutput(ns("indig_subrep_text"))
 }
 
 indig_subrep_plot_ui <- function(id){
   ns <- NS(id)
-  
+
   plotOutput(ns("indig_subrep_plot"))
 }
 
 indig_brecha_text_ui <- function(id){
   ns <- NS(id)
-  
+
   htmlOutput(ns("indig_brecha_text"))
 }
 
 # SECTION 3: DISABILITY
 discap_infograf_ui <- function(id){
   ns <- NS(id)
-  
+
   plotOutput(ns("discap_infograf"))
 }
 
 discap_subrep_plot_ui <- function(id){
   ns <- NS(id)
-  
+
   plotOutput(ns("discap_subrep_plot"))
 }
 
 discap_text_ui <- function(id){
   ns <- NS(id)
-  
+
   htmlOutput(ns("discap_text"))
 }
 
 # SECTION 4: PUBLIC VS PRIVATE UNIVERSITY
 univ_dist_text_ui <- function(id){
   ns <- NS(id)
-  
+
   htmlOutput(ns("univ_dist_text"))
 }
 
 univ_sector_plot_ui <- function(id){
   ns <- NS(id)
-  
+
   plotOutput(ns("univ_sector_plot"))
 }
 
 univ_brecha_text_ui <- function(id){
   ns <- NS(id)
-  
+
   htmlOutput(ns("univ_brecha_text"))
 }
 
@@ -290,11 +289,11 @@ univ_brecha_text_ui <- function(id){
 abogadas_server <- function(id){
   moduleServer(id, function(input, output, session) {
     ns <- session$ns(id)
-    
+
     ns <- session$ns(id)
-    
+
     plotWidth <- reactive({session$clientData[["output_abogadas-sit_fam_plot_width"]]})
-    
+
     text_size_to_use <- reactive({
       if (plotWidth() > 586) {
         laptop_text_sizes
@@ -302,12 +301,12 @@ abogadas_server <- function(id){
         mobile_text_sizes
       }
     })
-    
+
     output$screen_size_test <- renderPrint({
       paste0("El ancho de la pantalla es: ", plotWidth(),
              text_size_to_use())
     })
-    
+
     # SECTION 1: MOTHERHOOD/MARRIAGE
     output$sit_fam_intro_text <- renderUI({
       HTML(paste0("De cada 10 mujeres que ejercen como abogadas, ",
@@ -317,54 +316,54 @@ abogadas_server <- function(id){
       " están casadas o viven en unión libre. ",
       "Abajo se puede ver cómo consideraciones como la maternidad y el estado civil de las abogadas afectan las realidades laborales que enfrentan."))
     })
-    
+
     output$sit_fam_plot <- renderPlot({
       if (plotWidth() > 586) {
         plot <- plot_sit_fam(input$sit_fam_var, mobile = F) +
           text_size_to_use()
       } else {
-        plot <- plot_sit_fam(input$sit_fam_var, mobile = T) + 
+        plot <- plot_sit_fam(input$sit_fam_var, mobile = T) +
           text_size_to_use()
       }
-      
+
       if(input$sit_fam_var == "sector"){
-        plot <- plot + 
+        plot <- plot +
           theme(axis.line.x = element_blank(),
                 axis.text.x = element_blank(),
                 axis.ticks.x = element_blank(),
                 axis.title = element_blank())
       } else {
-        plot <- plot + 
+        plot <- plot +
           theme(axis.ticks = element_blank(),
                 axis.text.x = element_blank(),
                 axis.line = element_blank(),
                 legend.position = "none")
       }
-      
+
       return(plot)
     })
-    
+
     # SECTION 2: INDIGENEITY
     output$indig_percent_text <- renderUI({
-      HTML(paste0("En términos de identificación étnica, ", 
-                  span(paste0(perc_indig_abogada, "%"),  style = "font-weight: bold;"), 
-                  " de abogadas en México se reconocen como indígenas, mientras que ", 
+      HTML(paste0("En términos de identificación étnica, ",
+                  span(paste0(perc_indig_abogada, "%"),  style = "font-weight: bold;"),
+                  " de abogadas en México se reconocen como indígenas, mientras que ",
                   span(paste0(perc_indig_pop, "%"), style = "font-weight: bold;"),
                   " de todas las mujeres del país se identifican así."))
     })
-    
+
     output$indig_subrep_text <- renderUI({
       HTML(paste0("Esto quiere decir que para que la población de abogadas ",
                   "fuera étnicamente representativa de México en general, tendría que haber aproximadamente ",
                   span(round(perc_indig_pop / perc_indig_abogada, 1), style = "font-weight: bold;"),
                   " veces más abogadas indígenas de las que actualmente hay."))
     })
-    
+
     output$indig_subrep_plot <- renderPlot({
       mobile <- ifelse(plotWidth() > 586, F, T)
-      
-      ggplot(data = indig_subrep %>% filter(ocups_de_interes != "General"),
-             aes(x = ocups_de_interes, y = perc_indig)) +
+
+      plot <- ggplot(data = indig_subrep %>% filter(ocups_de_interes != "General"),
+                     aes(x = ocups_de_interes, y = perc_indig)) +
         geom_col(fill = pal_2[1]) +
         geom_errorbar(aes(ymin = perc_indig - margin_error, ymax = perc_indig + margin_error),
                       position = position_dodge(0.9), color = "#bcbcbc", width = 0.25) +
@@ -385,28 +384,34 @@ abogadas_server <- function(id){
         scale_x_discrete(labels = function(x) str_wrap(x, width = 20)) +
         scale_y_continuous(labels = scales::percent, limits = c(0, 1), breaks = seq(0, 1, 0.2)) +
         tema_abogadas +
-        text_size_to_use() +
-        theme(axis.text.x = element_text(angle = ifelse(plotWidth() < 800, 45, 0),
-                                         hjust = ifelse(plotWidth() < 800, 1, 0)))
+        text_size_to_use()
+      
+      if(plotWidth() < 800){
+        plot <- plot +
+          theme(axis.text.x = element_text(angle = 45, hjust = 1))
+      }
+      
+      return(plot)
+      
     })
-    
+
     output$indig_brecha_text <- renderUI({
       HTML(paste0("La desigualdad étnica en el derecho no es solo una cuestión de representatividad sino también de disparidades salariales. ",
-                  "Por cada peso que gana una abogada no indígena, una abogada indígena gana en promedio ", 
+                  "Por cada peso que gana una abogada no indígena, una abogada indígena gana en promedio ",
                   span(paste0(brecha_indig_abogadas, " centavos menos."), style = "font-weight: bold;"),
                   "\n(Fuente: Censo de Población y Vivienda 2020)"))
     })
-    
+
     # SECTION 3: DISABILITY
     output$discap_infograf <- renderPlot({
       mobile <- ifelse(plotWidth() > 586, F, T)
-      
+
       if(mobile){
         x_limits <- c(0, 6)
       } else{
         x_limits <- c(0.5, 5.5)
       }
-      
+
       ggplot(data = discap_types, aes(x = x_val, y = y_val)) +
         geom_text(aes(label = paste0(disc_desc, "?")),
                   color = "#242223", fontface = "bold", family = "Roboto",
@@ -414,7 +419,7 @@ abogadas_server <- function(id){
         geom_text(aes(label = paste0(perc * 100, "%"), y = y_val), vjust = 1.5,
                   color = "#242223", fontface = "bold", family = "Roboto",
                   size = ifelse(mobile, 10, 30)) +
-        labs(title = ifelse(mobile, 
+        labs(title = ifelse(mobile,
                             "De la población de abogadas,\n¿qué porcentaje tiene una discapacidad...",
                             "De la población de abogadas, ¿qué porcentaje tiene una discapacidad..."),
              caption = paste0(endireh_caption_indig)) +
@@ -427,15 +432,15 @@ abogadas_server <- function(id){
               axis.ticks = element_blank(),
               axis.title = element_blank(),
               plot.title = element_text(hjust = 0.5, size = ifelse(mobile, 14, 30)))
-      
+
     })
-    
+
     output$discap_subrep_plot <- renderPlot({
       mobile <- ifelse(plotWidth() > 586, F, T)
-      
+
       df <- discap_subrep %>% filter(ocups_de_interes != "General")
-      
-      ggplot(data = df,
+
+      plot <- ggplot(data = df,
              aes(x = ocups_de_interes, y = perc_disc)) +
         geom_col(fill = pal_2[1]) +
         geom_errorbar(aes(ymin = perc_disc - margin_error, ymax = perc_disc + margin_error),
@@ -455,11 +460,16 @@ abogadas_server <- function(id){
         scale_x_discrete(labels = function(x) str_wrap(x, width = 20)) +
         scale_y_continuous(labels = scales::percent, limits = c(0, 1), breaks = seq(0, 1, 0.2)) +
         tema_abogadas +
-        text_size_to_use() +
-        theme(axis.text.x = element_text(angle = ifelse(plotWidth() < 800, 45, 0),
-                                         hjust = ifelse(plotWidth() < 800, 1, 0)))
+        text_size_to_use()
+      
+      if(plotWidth() < 800){
+        plot <- plot +
+          theme(axis.text.x = element_text(angle = 45, hjust = 1))
+      }
+      
+      return(plot)
     })
-    
+
     output$discap_text <- renderUI({
       HTML(paste0(
         span(paste0("Una de cada ", round(1/perc_discap_abogada, 0)), style = "font-weight: bold;"),
@@ -467,8 +477,8 @@ abogadas_server <- function(id){
         span(paste0(round(perc_discap_pop / perc_discap_abogada, 1)," veces menos"), style = "font-weight: bold;"),
         " mujeres con discapacidad entre las abogadas que entre la población en general. "))
     })
-    
-      
+
+
     # SECTION 4: PUBLIC VS. PRIVATE UNIVERSITY
     output$univ_dist_text <- renderUI({
       HTML(paste0("Mientras que ", span(paste0(univ_pub_abga,"%"), style = "font-weight: bold;"),
@@ -477,22 +487,22 @@ abogadas_server <- function(id){
                   " estudiaron en una privada. ",
                   "En cambio, de las mujeres con estudios superiores (de cualquier disciplina), ",
                   span(paste0(univ_pub_gen,"%"), style = "font-weight: bold;"),
-                  " estudiaron en una universidad pública y ", 
+                  " estudiaron en una universidad pública y ",
                   span(paste0(univ_priv_gen,"%"), style = "font-weight: bold;"),
                   " en una privada. "))
     })
-    
+
     output$univ_sector_plot <- renderPlot({
       mobile <- ifelse(plotWidth() > 586, F, T)
-      
+
       plot_title <- ifelse(mobile,
                            "Sector de trabajo de las abogadas según tipo de\nuniversidad donde estudiaron",
-                           "Sector de trabajo de las abogadas según tipo de universidaddonde estudiaron")
+                           "Sector de trabajo de las abogadas según tipo de universidad donde estudiaron")
       
       df <- univ_sector %>% 
         mutate(sector_trabajo = case_when(mobile ~ str_wrap(sector_trabajo, 15), 
                                           T ~ sector_trabajo))
-      
+
       ggplot(data = df, aes(x = fct_rev(escuela_tipo), y = perc,
                                      fill = sector_trabajo)) +
         geom_bar(position = "stack", stat = "identity") +
@@ -508,16 +518,16 @@ abogadas_server <- function(id){
               axis.ticks.y = element_blank(),
               axis.title.y = element_blank()) +
         scale_fill_manual(values = pal_5) +
-        guides(fill=guide_legend(ncol=2, byrow=TRUE))
+        guides(fill=guide_legend(ncol=ifelse(mobile, 2, 4), byrow=TRUE))
     })
-    
+
     output$univ_brecha_text <- renderUI({
-      HTML(paste0("Así como existen brechas salariales por sexo e identidad étnica, también existe una brecha salarial por el tipo de universidad donde una abogada estudió. ", 
+      HTML(paste0("Así como existen brechas salariales por sexo e identidad étnica, también existe una brecha salarial por el tipo de universidad donde una abogada estudió. ",
                   "Las abogadas que estudiaron en una universidad pública ganan en promedio ",
                   span(paste0(univ_brecha_law, "% menos"), style = "font-weight: bold;"),
                   " que las que estudiaron en una universidad privada."))
     })
-    
+
   })
 }
 
@@ -539,7 +549,7 @@ app_demo <- function(){
     univ_sector_plot_ui("abogadas"),
     univ_brecha_text_ui("abogadas")
   )
-  
+
   server <- function(input, output, session) {
     abogadas_server("abogadas")
     }

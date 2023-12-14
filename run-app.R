@@ -10,4 +10,4 @@ source(here("app/modules/src/mod_cuidados.R"))
 source(here("app/modules/src/mod_violencia.R"))
 
 # Corremos el ui y el server
-runApp(here("app"))
+runApp(here("app"), host = "0.0.0.0", port = 3838)
