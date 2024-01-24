@@ -237,7 +237,7 @@ violencia_server <- function(id){
       tablet <- ifelse(plotWidth() > 768, FALSE, TRUE)
 
       plot <- plot_violencia_abgas(input$desag_var, c("embzo_prueba_trab", "embzo_desp"),
-                           "¿Qué porcentaje de las abogadas han vivido discriminación por embrazo en su trabajo durante los últimos 5 años?",
+                           "¿Qué porcentaje de las abogadas han vivido discriminación por embarazo en su trabajo durante los últimos 5 años?",
                            mobile, tablet) +
         text_size_to_use() +
         theme(axis.ticks.x = element_blank(),

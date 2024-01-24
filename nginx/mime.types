@@ -1,0 +1,5 @@
+mime.types edit. 
+    application/x-font-ttf           ttc;
+    application/x-font-otf           otf;
+    application/font-woff2           woff2;
+    font/ttf                         ttf;

@@ -102,7 +102,7 @@ sit_fam_particip <- enoe %>%
   mutate(var_type = "particip")
 
 sit_fam_ejercicio <- enoe %>%
-  filter(educ_der & edad < 60 & !is.na(e_con)) %>%
+  filter(educ_der & edad < 60 & !is.na(e_con) & pnea == "pea") %>%
   mutate(e_con = ifelse(e_con == "casado o unión libre", "Casada o en unión libre", "Soltera o divorciada"),
          maternidad = ifelse(n_hij > 0, "Con hijos", "Sin hijos"),
          edad_categ_10 = str_remove_all(edad_categ_10, " años")) %>%

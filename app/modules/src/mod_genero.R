@@ -215,52 +215,39 @@ plot_brecha_heat_map <- function(var_choice, mobile){
   return(plot)
 }
 
-plot_ejercicio <- function(var_choice){
+plot_ejercicio <- function(mobile){
   filtered_df <- ejercicio_derecho %>%
-    filter(categ_type == var_choice) %>%
+    filter(categ_type == "maternidad_e_con") %>% 
     mutate(maternidad = factor(maternidad, levels = c("Hombres",
                                                       "Mujeres sin hijes",
                                                       "Mujeres con hijes")))
 
   caption_plot_ejercicio <- paste0(caption_enoe_default, "\n",
                                    "Intervalos representan intervalos de confianza del 90%.")
+  
+  title_unwrapped <- "Del total de personas que estudiaron Derecho y participan en el mercado laboral, ¿qué porcentaje ejerce la profesión?"
 
-  if(var_choice == "solo_sexo"){
-    plot <- ggplot(data = filtered_df, aes(x = sexo, y = perc_ejercicio, fill = sexo)) +
-      geom_col() +
-      geom_errorbar(aes(ymin = ifelse(perc_ejercicio - margin_error >= 0, perc_ejercicio - margin_error, 0),
-                        ymax = perc_ejercicio + margin_error),
-                    position = position_dodge(0.9), color = "#bcbcbc", width = 0.25) +
-      labs(title = "Del total de personas que estudiaron Derecho,\n¿qué porcentaje ejerce la profesión?",
-           y = "", x = "", fill = "Sexo", caption = caption_plot_ejercicio) +
-      scale_y_continuous(limits = c(0, 1)) +
-      scale_fill_manual(values = pal_hom_muj) +
-      tema_abogadas +
-      theme(axis.ticks.x = element_blank(),
-            axis.text.x = element_blank(),
-            axis.ticks.y = element_blank(),
-            axis.text.y = element_blank())
-
-    return(plot)
+  plot <- ggplot(data = filtered_df, aes(x = e_con, y = perc_ejercicio, fill = maternidad)) +
+    geom_col(position = position_dodge()) +
+    geom_errorbar(aes(ymin = ifelse(perc_ejercicio - margin_error >= 0, perc_ejercicio - margin_error, 0),
+                      ymax = perc_ejercicio + margin_error),
+                  position = position_dodge(0.9), color = "#bcbcbc", width = 0.25) +
+    labs(title = str_wrap(title_unwrapped, ifelse(mobile, 45, 80)),
+         y = "", x = "", fill = "Situación familiar", caption = caption_plot_ejercicio) +
+    scale_y_continuous(limits = c(0, 1)) +
+    scale_fill_manual(values = pal_maternidad) +
+    tema_abogadas +
+    theme(
+      axis.ticks.y = element_blank(),
+      axis.text.y = element_blank())
+  
+  if(mobile){
+    plot <- plot +
+      guides(fill=guide_legend(ncol=2, byrow=TRUE))
   }
 
-  if(var_choice == "maternidad_e_con"){
-    plot <- ggplot(data = filtered_df, aes(x = e_con, y = perc_ejercicio, fill = maternidad)) +
-      geom_col(position = position_dodge()) +
-      geom_errorbar(aes(ymin = ifelse(perc_ejercicio - margin_error >= 0, perc_ejercicio - margin_error, 0),
-                        ymax = perc_ejercicio + margin_error),
-                    position = position_dodge(0.9), color = "#bcbcbc", width = 0.25) +
-      labs(title = "Del total de personas que estudiaron Derecho,\n¿qué porcentaje ejerce la profesión?",
-           y = "", x = "", fill = "Situación familiar", caption = caption_plot_ejercicio) +
-      scale_y_continuous(limits = c(0, 1)) +
-      scale_fill_manual(values = pal_maternidad) +
-      tema_abogadas +
-      theme(
-        axis.ticks.y = element_blank(),
-        axis.text.y = element_blank())
-
-    return(plot)
-  }
+  return(plot)
+    
 }
 
 map_paridad <- function(def_choice, mobile){
@@ -445,7 +432,7 @@ genero_server <- function(id){
                    color = "#faf4e8") +
         facet_grid( ~ sector, scales = "free_x", space = "free_x") +
       labs(
-        title = "Paridad de género entre las personas abogadas por formación",
+        title = "Paridad de género por sector de trabajo",
         fill = "Sexo",
         caption = paste0(
           caption_enoe_default,
@@ -484,7 +471,7 @@ genero_server <- function(id){
                       scales = "free_y",
                       ncol = 1)  +
         labs(
-          title = "Paridad de género entre las personas\nabogadas por formación",
+          title = "Paridad de género por sector\nde trabajo",
           fill = "Sexo",
           caption = paste0(
             caption_enoe_default
@@ -520,7 +507,7 @@ genero_server <- function(id){
         geom_hline(yintercept = 0.5, linetype = "dashed", color = "#faf4e8") +
         labs(
           title = plot_title,
-          x = paste0("Edad\n", "(Mayores ", "\u2192", " jóvenes)"), y = "",
+          x = paste0("Edad\n", "(Mayores --> jóvenes)"), y = "",
           fill = "Sexo",
           caption = caption_enoe_default) +
         coord_cartesian(xlim = c(80, 20)) +
@@ -695,10 +682,12 @@ genero_server <- function(id){
     })
 
     output$plot_ejercicio_interactive <- renderPlot({
-      plot <- plot_ejercicio(var_choice = "maternidad_e_con") +
+      mobile <- plotWidth() <= 586
+      
+      plot <- plot_ejercicio(mobile) +
         text_size_to_use()
 
-      if(plotWidth() <= 586){
+      if(mobile){
         plot <- plot +
           geom_text(aes(label = paste0(perc_ejercicio * 100, "%"), y = perc_ejercicio - 0.1, group = maternidad),
                     color = "#faf4e8", fontface = "bold", size = 4, family="Roboto",
@@ -720,8 +709,8 @@ genero_server <- function(id){
                        style = "font-weight: bold;"), "y ",
                   span(paste0(ejercicio_hombres, "% de los hombres "),
                        style = "font-weight: bold;"),
-                  "que estudiaron Derecho ejercen actualmente en el área. ",
-                  "Les demás ejercen otras profesiones o no participan en el mercado de trabajo."))
+                  "que estudiaron Derecho y participan en el mercado laboral ejercen actualmente en el área. ",
+                  "Les demás ejercen otras profesiones dentro del mercado laboral."))
     })
 
     output$paridad_map <- renderPlot({

@@ -533,7 +533,7 @@ perfiles_server <- function(id){
         labs(
           title = plot_title,
           subtitle = "Por edad",
-          x = paste0("Edad\n", "(Mayores ", "\u2192", " jóvenes)"), y = "",
+          x = paste0("Edad\n", "(Mayores --> jóvenes)"), y = "",
           caption = caption_enoe_default) +
         coord_cartesian(xlim = c(80, 25)) +
         scale_y_continuous(breaks = seq(0, 1, by = 0.2), labels = percent) +

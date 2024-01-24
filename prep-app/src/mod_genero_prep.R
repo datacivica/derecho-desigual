@@ -9,7 +9,7 @@
 
 # Packages
 if(!require(pacman)) install.packages("pacman")
-pacman::p_load(stringr, dplyr, here, ggplot2, spatstat, googledrive)
+pacman::p_load(stringr, dplyr, here, ggplot2, spatstat, googledrive, readr)
 
 # Files
 paths <- list(paridad_genero_sector = here("prep-app/output/paridad_genero_sector.csv"),
@@ -187,6 +187,10 @@ participacion_general <- enoe %>%
             count = n()) %>%
   mutate(carreras_de_interes = "General")
 
+test <- enoe %>% 
+  filter(educ_der & pnea == "pea") %>% 
+  summarize(perc_mujer = round(weighted.mean(sexo == "mujer", fac), 3))
+  
 participacion_carrera <- bind_rows(participacion_carrera, participacion_general) %>%
   mutate(sexo = case_when(sexo == "hombre" ~ "Hombres",
                           sexo == "mujer" ~ "Mujeres"),
@@ -208,7 +212,7 @@ write_csv(brechas_participacion, paths$brechas_participacion)
 
 # Exercise law major
 ejercicio_general <- enoe %>%
-  filter(educ_der) %>%
+  filter(educ_der & pnea == "pea") %>%
   group_by(sexo) %>%
   summarize(perc_ejercicio =  round(weighted.mean(ocup_der, fac), 3),
             count = n()) %>%
@@ -219,10 +223,11 @@ ejercicio_e_con <- enoe %>%
     n_hij > 0 ~ "Mujeres con hijes",
     sexo == "mujer" & n_hij == 0 ~ "Mujeres sin hijes",
     sexo == "hombre" ~ "Hombres")) %>%
-  filter(educ_der & !is.na(e_con) & !is.na(maternidad)) %>%
+  filter(educ_der & pnea == "pea" &
+           !is.na(e_con) & !is.na(maternidad)) %>%
   group_by(sexo, e_con, maternidad) %>%
   summarize(perc_ejercicio = round(weighted.mean(ocup_der, fac), 3),
-            count = n()) %>%
+            count = n()) %>% 
   mutate(categ_type = "maternidad_e_con")
 
 ejercicio_der <- bind_rows(ejercicio_general, ejercicio_e_con) %>%

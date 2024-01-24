@@ -128,6 +128,11 @@ Además, algunos directorios contienen el siguiente subdirectorio:
 - ENOE: La ENOE se actualizará anualmente de forma automática tras la
   publicación de los microdatos del cuestionario ampliado de esta encuesta.
 
+  Para actualizar la ENOE de forma automática desde otro servidor, agrega el siguiente código al crontab de ese servidor (substituyendo las rutas por las rutas de ese servidor: 
+0 0 1 6 * /bin/sh ~/git/abogadas-mx/enoe/import-enoe/src/update-enoe.sh >> ~/git/abogadas-mx/enoe/import-enoe/output/cron.log 2>&1
+
+  Para realizar esta actualización desde otro servidor, también se tendrán que substituir las rutas en el archivo enoe/import-enoe/src/update-enoe.sh
+
 - ENDIREH: se tendrá que actualizar de forma manual, ya que los nombres de las
   variables y tablas cambian cada vez que se realiza la encuesta. Los microdatos
   de esta encuesta se publican aproximadamente cada 5 años. La última versión

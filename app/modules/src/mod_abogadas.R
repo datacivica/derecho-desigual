@@ -108,7 +108,7 @@ informal_title <- "Porcentaje de abogadas que trabajan en el sector informal"
 
 particip_title <- "Porcentaje de egresadas de la carrera de Derecho que participan en el mercado laboral"
 
-ejercicio_title <- "Porcentaje de egresadas de la carrera de Derecho que ejercen como abogadas"
+ejercicio_title <- "Porcentaje* de egresadas de la carrera de Derecho que ejercen como abogadas"
 
 sector_title <- "Sector de trabajo de las abogadas"
 
@@ -159,7 +159,10 @@ plot_sit_fam <- function(var_choice, mobile){
                    ifelse(mobile, 15, 30)))) +
       labs(title = get(paste0(var_choice, "_title")),
            subtitle = subtitle_var,
-           caption = enoe_caption_default,
+           caption = ifelse(var_choice == "ejercicio",
+                            paste0(enoe_caption_default,
+                                   "\n*Del total que participa en el mercado laboral"),
+                            enoe_caption_default),
            y = "", x = "") +
       tema_abogadas +
       scale_fill_gradient(low = pal_gradient_purple["low"], high = pal_gradient_purple["high"])

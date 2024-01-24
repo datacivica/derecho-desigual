@@ -6,7 +6,8 @@
 # abogadas-mx/enoe/import-enoe/src/filter-tables.R 
 
 if(!require(pacman)) install.packages("pacman")
-pacman::p_load(tidyverse, R.utils, janitor, data.table, here, yaml, googledrive, digest)
+pacman::p_load(tidyverse, R.utils, janitor, data.table, here, yaml, googledrive,
+               digest, str_detect)
 
 paths <- list(vars_to_keep = here("enoe/import-enoe/hand/vars-to-keep.yaml"),
               trims_to_keep = here("enoe/import-enoe/hand/trims-ampliado.yaml"),
@@ -35,17 +36,22 @@ coe1_vars_to_keep <- c(all_vars_to_keep, vars_to_keep$coe1t)
 coe2_vars_to_keep <- c(all_vars_to_keep, vars_to_keep$coe2t)
 
 # Read raw data
-drive_names <- drive_in %>%
-  filter(grepl(paste(trims_to_keep, collapse = "|"), name)) %>% 
-  pull(name)
+# drive_names <- drive_in %>%
+#   filter(grepl(paste(trims_to_keep, collapse = "|"), name))
 
-stopifnot(length(drive_names) == length(trims_to_keep) * 4)
+# stopifnot(length(drive_names) >= (length(trims_to_keep) - 1) * 4)
 
 # Hogar
-hogar_files <- drive_names[grep("^hog", drive_names)]
+hogar_files <- drive_in %>% 
+  filter(grepl(paste(trims_to_keep, collapse = "|"), name) &
+           str_detect(name, "hog"))
 
 import_hogar <- function(x){
-  hogar <- drive_read_string(x) %>% 
+  idx <- which(hogar_files$name == x)
+  
+  file_id <- hogar_files$id[idx]
+    
+  hogar <- drive_read_string(file_id) %>% 
     textConnection("r") %>% 
     read.csv() %>%
     clean_names() %>% 
@@ -58,7 +64,7 @@ import_hogar <- function(x){
   writeLines(hash, paste0(paths$output, str_replace(x, ".csv", "_filtered.txt")))
 }
 
-walk(hogar_files, import_hogar)
+walk(hogar_files$name, import_hogar)
 
 message("Hogar done.")
 
@@ -67,10 +73,16 @@ message("Hogar done.")
 # Por alguna razón, para los archivos sdem, drive_read_string me devuelve NA
 # Entonces aquí descargo los archivos en lugar de leerlos como string
 
-sdem_files <- drive_names[grep("^sdem", drive_names)]
+sdem_files <- drive_in %>% 
+  filter(grepl(paste(trims_to_keep, collapse = "|"), name) &
+           str_detect(name, "sdem"))
 
 import_sdem <- function(x){
-  drive_download(x, path = paste0(tempdir(), "/", x))
+  idx <- which(sdem_files$name == x)
+  
+  file_id <- sdem_files$id[idx]
+  
+  drive_download(file_id, path = paste0(tempdir(), "/", x))
   
   sdem <- read_csv(paste0(tempdir(), "/", x)) %>%
     clean_names() %>% 
@@ -88,15 +100,21 @@ import_sdem <- function(x){
 }
 
 # Suppressed warnings because a few typos in open text fields create warnings when read
-suppressWarnings(walk(sdem_files, import_sdem))
+suppressWarnings(walk(sdem_files$name, import_sdem))
 
 message("SDem done.")
 
 # COE1
-coe1_files <- drive_names[grep("^coe1", drive_names)]
+coe1_files <- drive_in %>% 
+  filter(grepl(paste(trims_to_keep, collapse = "|"), name) &
+           str_detect(name, "coe1"))
 
 import_coe1 <- function(x){
-  coe1 <- drive_read_string(x) %>% 
+  idx <- which(coe1_files$name == x)
+  
+  file_id <- coe1_files$id[idx]
+  
+  coe1 <- drive_read_string(file_id) %>% 
     textConnection("r") %>% 
     read.csv() %>%
     clean_names() %>% 
@@ -110,15 +128,21 @@ import_coe1 <- function(x){
   writeLines(hash, paste0(paths$output, str_replace(x, ".csv", "_filtered.txt")))
 }
 
-walk(coe1_files, import_coe1)
+walk(coe1_files$name, import_coe1)
 
 message("COE1 done.")
 
 # COE2
-coe2_files <- drive_names[grep("^coe2", drive_names)]
+coe2_files <- drive_in %>% 
+  filter(grepl(paste(trims_to_keep, collapse = "|"), name) &
+           str_detect(name, "coe2"))
 
 import_coe2 <- function(x){
-  coe2 <- drive_read_string(x) %>% 
+  idx <- which(coe2_files$name == x)
+  
+  file_id <- coe2_files$id[idx]
+  
+  coe2 <- drive_read_string(file_id) %>% 
     textConnection("r") %>% 
     read.csv() %>% 
     clean_names() %>% 
@@ -131,7 +155,7 @@ import_coe2 <- function(x){
   writeLines(hash, paste0(paths$output, str_replace(x, ".csv", "_filtered.txt")))
 }
 
-walk(coe2_files, import_coe2)
+walk(coe2_files$name, import_coe2)
 
 message("COE2 done.")
 

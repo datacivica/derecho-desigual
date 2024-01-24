@@ -1,3 +1,7 @@
+FROM ubuntu:latest
+
+ENTRYPOINT ["tail", "-f", "/dev/null"]
+
 FROM rocker/r-ver:4.3.2
 RUN apt-get update
 RUN apt-get update

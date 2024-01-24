@@ -1,9 +1,9 @@
 sexo,perc_ejercicio,count,categ_type,e_con,maternidad,margin_error
-Hombres,0.297,14572,solo_sexo,NA,NA,0.006226761165314456
-Mujeres,0.226,13186,solo_sexo,NA,NA,0.005991479345365606
-Hombres,0.315,8577,maternidad_e_con,Casade o en unión libre,Hombres,0.008250851294753937
-Hombres,0.273,5992,maternidad_e_con,Soltere o divorciade,Hombres,0.00946735209214711
-Mujeres,0.195,5271,maternidad_e_con,Casade o en unión libre,Mujeres con hijes,0.008977070586485385
-Mujeres,0.25,949,maternidad_e_con,Casade o en unión libre,Mujeres sin hijes,0.023122427803861426
-Mujeres,0.253,2610,maternidad_e_con,Soltere o divorciade,Mujeres con hijes,0.013998007121089378
-Mujeres,0.24,4355,maternidad_e_con,Soltere o divorciade,Mujeres sin hijes,0.010645945525990873
+Hombres,0.357,9951,solo_sexo,NA,NA,0.007900819382658691
+Mujeres,0.327,7560,solo_sexo,NA,NA,0.008875368892959385
+Hombres,0.359,6080,maternidad_e_con,Casade o en unión libre,Hombres,0.010120229277090918
+Hombres,0.354,3869,maternidad_e_con,Soltere o divorciade,Hombres,0.012646909984380023
+Mujeres,0.319,2752,maternidad_e_con,Casade o en unión libre,Mujeres con hijes,0.01461539593440438
+Mujeres,0.32,598,maternidad_e_con,Casade o en unión libre,Mujeres sin hijes,0.03137940870969209
+Mujeres,0.318,1670,maternidad_e_con,Soltere o divorciade,Mujeres con hijes,0.01874620724753849
+Mujeres,0.341,2539,maternidad_e_con,Soltere o divorciade,Mujeres sin hijes,0.015475847754356785
