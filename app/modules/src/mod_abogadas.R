@@ -344,6 +344,7 @@ abogadas_server <- function(id){
       }
 
       return(plot)
+      dev.off()
     })
 
     # SECTION 2: INDIGENEITY
@@ -395,7 +396,7 @@ abogadas_server <- function(id){
       }
       
       return(plot)
-      
+      dev.off()
     })
 
     output$indig_brecha_text <- renderUI({
@@ -415,7 +416,7 @@ abogadas_server <- function(id){
         x_limits <- c(0.5, 5.5)
       }
 
-      ggplot(data = discap_types, aes(x = x_val, y = y_val)) +
+      plot <- ggplot(data = discap_types, aes(x = x_val, y = y_val)) +
         geom_text(aes(label = paste0(disc_desc, "?")),
                   color = "#242223", fontface = "bold", family = "Roboto",
                   size = ifelse(mobile, 5, 8)) +
@@ -435,7 +436,9 @@ abogadas_server <- function(id){
               axis.ticks = element_blank(),
               axis.title = element_blank(),
               plot.title = element_text(hjust = 0.5, size = ifelse(mobile, 14, 30)))
-
+      
+      return(plot)
+      dev.off()
     })
 
     output$discap_subrep_plot <- renderPlot({
@@ -471,6 +474,7 @@ abogadas_server <- function(id){
       }
       
       return(plot)
+      dev.off()
     })
 
     output$discap_text <- renderUI({
@@ -506,7 +510,7 @@ abogadas_server <- function(id){
         mutate(sector_trabajo = case_when(mobile ~ str_wrap(sector_trabajo, 15), 
                                           T ~ sector_trabajo))
 
-      ggplot(data = df, aes(x = fct_rev(escuela_tipo), y = perc,
+      plot <- ggplot(data = df, aes(x = fct_rev(escuela_tipo), y = perc,
                                      fill = sector_trabajo)) +
         geom_bar(position = "stack", stat = "identity") +
         geom_text(aes(label = paste0(perc*100, "%"), y = perc),
@@ -522,6 +526,9 @@ abogadas_server <- function(id){
               axis.title.y = element_blank()) +
         scale_fill_manual(values = pal_5) +
         guides(fill=guide_legend(ncol=ifelse(mobile, 2, 4), byrow=TRUE))
+      
+      return(plot)
+      dev.off()
     })
 
     output$univ_brecha_text <- renderUI({

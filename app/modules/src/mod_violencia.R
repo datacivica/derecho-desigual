@@ -175,7 +175,7 @@ violencia_server <- function(id){
         x_limits <- c(0.75, 2.25)
       }
 
-      ggplot(data = cifras_resumen_violencia, aes(x = x, y = y)) +
+      plot <- ggplot(data = cifras_resumen_violencia, aes(x = x, y = y)) +
         geom_text(aes(label = paste0(valor, "%")), size = ifelse(mobile, 8, 20),
                   fontface = "bold", color = "#242223", family = "Roboto Slab") +
         geom_text(aes(label = ifelse(mobile,
@@ -228,6 +228,9 @@ violencia_server <- function(id){
               axis.text.y = element_blank(),
               axis.ticks = element_blank(),
               axis.line = element_blank())
+      
+      return(plot)
+      dev.off()
     })
 
     # 2. BAR CHARTS INTERACTIVOS DE VIOLENCIA HACIA LAS ABOGADAS
@@ -249,6 +252,7 @@ violencia_server <- function(id){
       }
 
       return(plot)
+      dev.off()
     })
 
     output$violencia_abgas_anio <- renderPlot({
@@ -269,6 +273,7 @@ violencia_server <- function(id){
       }
 
       return(plot)
+      dev.off()
     })
 
     output$violencia_abgas_lab <- renderPlot({
@@ -289,6 +294,7 @@ violencia_server <- function(id){
       }
 
       return(plot)
+      dev.off()
     })
 
 
@@ -306,6 +312,7 @@ violencia_server <- function(id){
       }
 
       return(plot)
+      dev.off()
     })
 
   })

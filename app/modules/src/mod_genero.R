@@ -495,13 +495,14 @@ genero_server <- function(id){
       }
 
       return(plot)
+      dev.off()
     })
 
     output$plot_paridad_edad <- renderPlot({
       plot_title_unwrapped <- "Paridad de género entre las personas abogadas por formación"
       plot_title <- ifelse(plotWidth() > 586, plot_title_unwrapped, str_wrap(plot_title_unwrapped, 40))
 
-      paridad_genero_edad %>%
+      plot <- paridad_genero_edad %>%
         ggplot(data = ., aes(x = edad_midpoint, y = perc, fill = sexo)) +
         geom_area() +
         geom_hline(yintercept = 0.5, linetype = "dashed", color = "#faf4e8") +
@@ -516,6 +517,10 @@ genero_server <- function(id){
         scale_x_reverse(breaks = seq(20, 80, by = 10)) +
         tema_abogadas +
         text_size_to_use()
+      
+      return(plot)
+      
+      dev.off()
     })
 
     output$paridad_edad_text <- renderUI({
@@ -589,6 +594,7 @@ genero_server <- function(id){
       }
 
       return(plot)
+      dev.off()
     })
 
     output$plot_brecha_interactive <- renderPlot({
@@ -616,6 +622,7 @@ genero_server <- function(id){
       }
 
       return(plot)
+      dev.off()
     })
 
     # SECTION 3: LABOR MARKET PARTICIPATION
@@ -630,7 +637,7 @@ genero_server <- function(id){
       plotWidth <- reactive({session$clientData[["output_perfiles-perfiles_dist_plot_width"]]})
       text_size <- ifelse(plotWidth() <= 630, 3, 4)
 
-      ggplot(data = participacion_carrera %>% filter(carreras_de_interes != "General"),
+      plot <- ggplot(data = participacion_carrera %>% filter(carreras_de_interes != "General"),
              aes(x = carreras_de_interes, y = perc_pea, fill = sexo)) +
         geom_col(position = position_dodge()) +
         geom_errorbar(aes(ymin = ifelse(perc_pea - margin_error >= 0, perc_pea - margin_error, 0),
@@ -659,6 +666,9 @@ genero_server <- function(id){
         tema_abogadas +
         text_size_to_use() +
         theme(axis.text.x = element_text(angle = 45, vjust = 0.8, hjust = 1))
+      
+      return(plot)
+      dev.off()
     })
 
     output$participacion_hallazgos <- renderUI({
@@ -700,7 +710,7 @@ genero_server <- function(id){
       }
 
       return(plot)
-
+      dev.off()
     })
 
     output$plot_ejercicio_summary <- renderUI({
@@ -743,7 +753,9 @@ genero_server <- function(id){
                         color = color_label),
                     fontface = "bold", family = "Roboto", size = 4)
       }
+      
       return(plot)
+      dev.off()
     })
 
   })

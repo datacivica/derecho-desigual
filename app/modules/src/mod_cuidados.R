@@ -183,7 +183,7 @@ cuidados_server <- function(id){
                                                 "Abogadas\n",
                                                 muj_no_abg_title)))
 
-      ggplot(data = df, aes(x = group, y = as.numeric(var_name))) +
+      plot <- ggplot(data = df, aes(x = group, y = as.numeric(var_name))) +
         geom_text(aes(label = var_val), size = ifelse(mobile, 8, 20), fontface = "bold", color = "#242223", family = "Roboto Slab") +
         geom_text(aes(label = "tienen acceso a guarderías a través de su empleo",
                       x = "Abogadas\n", y = 4),
@@ -213,6 +213,9 @@ cuidados_server <- function(id){
               axis.text.y = element_blank(),
               axis.ticks = element_blank(),
               axis.line = element_blank())
+      
+      return(plot)
+      dev.off()
     })
 
     output$plot_cuidados_vs_outcomes <- renderPlot({
@@ -228,6 +231,7 @@ cuidados_server <- function(id){
       }
 
       return(plot)
+      dev.off()
     })
 
     output$hallazgos_thrs_particip <- renderUI({

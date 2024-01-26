@@ -477,8 +477,9 @@ perfiles_server <- function(id){
             theme(legend.justification = c(0, 0))
         }
       }
-
+      
       return(plot)
+      dev.off()
     })
 
     # SECTION 2: INCOME
@@ -497,8 +498,9 @@ perfiles_server <- function(id){
         plot <- plot + theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
           guides(fill=guide_legend(ncol=2, byrow=TRUE))
       }
-
+      
       return(plot)
+      dev.off()
     })
 
     output$women_income_text <- renderUI({
@@ -522,8 +524,8 @@ perfiles_server <- function(id){
       plot_title_unwrapped <- "Porcentaje de personas con estudios superiores que estudiaron Derecho"
 
       plot_title <- ifelse(plotWidth() > 586, plot_title_unwrapped, str_wrap(plot_title_unwrapped, 48))
-
-      law_preval_age %>%
+      
+      plot <- law_preval_age %>%
         filter(type == "just_lic") %>%
         ggplot(data = ., aes(x = edad, y = perc, fill = educ)) +
         geom_area() +
@@ -544,7 +546,9 @@ perfiles_server <- function(id){
                                      "lic_non_law" = "Estudió otra carrera"), name = NULL,
                           values = c("lic_law" = pal_2[1],
                                      "lic_non_law" = pal_2[2]))
-
+      
+      return(plot)
+      dev.off()
     })
 
     output$law_preval_text <- renderUI({
@@ -563,8 +567,8 @@ perfiles_server <- function(id){
       text_size <- ifelse(plotWidth() > 586, 6, 3)
 
       font_face <- ifelse(plotWidth() > 586, "bold", "plain")
-
-      map_preval(def_choice = input$def_type_map, sexo_choice = input$sexo_map) +
+      
+      plot <- map_preval(def_choice = input$def_type_map, sexo_choice = input$sexo_map) +
         geom_text(aes(x = centroid_long, y = centroid_lat,
                       label = paste0(state_abbr, "\n",
                                      perc, "%")),
@@ -577,7 +581,9 @@ perfiles_server <- function(id){
               axis.ticks = element_blank(),
               axis.title = element_blank(),
               legend.position = "none")
-
+      
+      return(plot)
+      dev.off()
     })
 
   })
